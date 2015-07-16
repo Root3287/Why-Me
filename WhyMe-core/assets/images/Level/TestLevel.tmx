@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="16" tileheight="16" nextobjectid="1">
+ <tileset firstgid="1" name="Tiles" tilewidth="16" tileheight="16">
+  <image source="../textures/SpriteSheet.png" trans="ff00ff" width="256" height="256"/>
+  <tile id="2">
+   <properties>
+    <property name="Solid" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="Solid" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="Solid" value=""/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="Solid" value=""/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="Solid" value=""/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="Solid" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Collision" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt2dGOgyAUAFGb+P/f3HeLBRS4A8zDZGO6FeTYurrncRynofoYIj1Y6cFKD1Z6sNKDlR6s9GClBys9WOnBSg9WerDSg5UerPRgpQcrPVjpwUoPVnqw0oOVHqz0YKUHKz1Y6cFKD1Z6sNKDlR6s9GClBys9WOnBSg9WerDSg5UerPRgpQcrPVjpwUoPVnqw0oOVHqz0YKUHKz1Y6cFKD1Z6sNKDlR6s9GClBys9WOnBSg9WJA/SXHZfg9Q8CPMirANlDtHzIq3F6Dk8eW3F9GBF99jNJNqjZHw9xo7f8vdmL9KjZuzo84a4Jj3GnmWuq3s8HVePfuOOfN8stfB4sg89+nicl/3kejuuHu3Wp8XzQj3aWejB8ng79uoW0R414+9w7zHKIzdGzd8BqzfKI/o4Z6m3x27nd5RHzfd+9DHOVO/7Mj04Hn5X8Tyij2+2ep7DesR67HzfQPBw/Tkerj/Lw/TYIT1YlXhcr9e126n95fZ//Zl6fcWePIcq+T9f7vl6yfbd+uvx65Ha/meWW//Ue6+fjx097nxK1uONR2rbz0e5R+56kfOoeX/t9WnmVj2uWUs987DYvgj5LfI=
+  </data>
+ </layer>
+ <layer name="Foreground" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztw8EJAAAMA6H7Z/99C51DwVVTVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVX/Af00rcA=
+  </data>
+ </layer>
+</map>
