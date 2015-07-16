@@ -2,30 +2,30 @@
 <classpath>
 	<classpathentry kind="src" path="assets"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/gdx-1.6.1.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/gdx-1.6.1-sources.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/gdx-backend-lwjgl-1.6.1.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/gdx-backend-lwjgl-1.6.1-sources.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/gdx-box2d-platform-1.6.1-natives-desktop.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/gdx-platform-1.6.1-natives-desktop.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/jinput-2.0.5.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/jinput-2.0.5-sources.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/jinput-platform-2.0.5-natives-linux.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/jinput-platform-2.0.5-natives-osx.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/jinput-platform-2.0.5-natives-windows.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/jlayer-1.0.1-gdx.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/jlayer-1.0.1-gdx-sources.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/jorbis-0.0.17.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/jorbis-0.0.17-sources.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/jutils-1.0.0.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/jutils-1.0.0-sources.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/lwjgl_util-2.9.2.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/lwjgl_util-2.9.2-sources.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/lwjgl-2.9.2.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/lwjgl-2.9.2-sources.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/lwjgl-platform-2.9.2-natives-linux.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/lwjgl-platform-2.9.2-natives-osx.jar"/>
-	<classpathentry kind="lib" path="jar/WhyMe-desktop/jar/lwjgl-platform-2.9.2-natives-windows.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/gdx-1.6.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/gdx-1.6.1-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/gdx-backend-lwjgl-1.6.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/gdx-backend-lwjgl-1.6.1-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/gdx-box2d-platform-1.6.1-natives-desktop.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/gdx-platform-1.6.1-natives-desktop.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/jinput-2.0.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/jinput-2.0.5-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/jinput-platform-2.0.5-natives-linux.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/jinput-platform-2.0.5-natives-osx.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/jinput-platform-2.0.5-natives-windows.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/jlayer-1.0.1-gdx.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/jlayer-1.0.1-gdx-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/jorbis-0.0.17.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/jorbis-0.0.17-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/jutils-1.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/jutils-1.0.0-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/lwjgl_util-2.9.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/lwjgl_util-2.9.2-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/lwjgl-2.9.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/lwjgl-2.9.2-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/lwjgl-platform-2.9.2-natives-linux.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/lwjgl-platform-2.9.2-natives-osx.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/lwjgl-platform-2.9.2-natives-windows.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/WhyMe-core"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
