@@ -1,0 +1,23 @@
+<classpath>
+  <classpathentry kind="output" path="bin"/>
+  <classpathentry kind="src" path="src"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER" exported="true"/>
+  <classpathentry kind="src" path="/WhyMe-core" exported="true"/>
+  <classpathentry sourcepath="jar/gdx-backend-lwjgl-1.6.1-sources.jar" kind="lib" path="jar/gdx-backend-lwjgl-1.6.1.jar" exported="true"/>
+  <classpathentry kind="lib" path="jar/gdx-platform-1.6.1-natives-desktop.jar" exported="true"/>
+  <classpathentry kind="lib" path="jar/gdx-box2d-platform-1.6.1-natives-desktop.jar" exported="true"/>
+  <classpathentry sourcepath="jar/gdx-1.6.1-sources.jar" kind="lib" path="jar/gdx-1.6.1.jar" exported="true"/>
+  <classpathentry sourcepath="jar/lwjgl-2.9.2-sources.jar" kind="lib" path="jar/lwjgl-2.9.2.jar" exported="true"/>
+  <classpathentry sourcepath="jar/lwjgl_util-2.9.2-sources.jar" kind="lib" path="jar/lwjgl_util-2.9.2.jar" exported="true"/>
+  <classpathentry sourcepath="jar/jlayer-1.0.1-gdx-sources.jar" kind="lib" path="jar/jlayer-1.0.1-gdx.jar" exported="true"/>
+  <classpathentry sourcepath="jar/jorbis-0.0.17-sources.jar" kind="lib" path="jar/jorbis-0.0.17.jar" exported="true"/>
+  <classpathentry kind="lib" path="jar/lwjgl-platform-2.9.2-natives-windows.jar" exported="true"/>
+  <classpathentry kind="lib" path="jar/lwjgl-platform-2.9.2-natives-linux.jar" exported="true"/>
+  <classpathentry kind="lib" path="jar/lwjgl-platform-2.9.2-natives-osx.jar" exported="true"/>
+  <classpathentry sourcepath="jar/jinput-2.0.5-sources.jar" kind="lib" path="jar/jinput-2.0.5.jar" exported="true"/>
+  <classpathentry sourcepath="jar/jutils-1.0.0-sources.jar" kind="lib" path="jar/jutils-1.0.0.jar" exported="true"/>
+  <classpathentry kind="lib" path="jar/jinput-platform-2.0.5-natives-linux.jar" exported="true"/>
+  <classpathentry kind="lib" path="jar/jinput-platform-2.0.5-natives-windows.jar" exported="true"/>
+  <classpathentry kind="lib" path="jar/jinput-platform-2.0.5-natives-osx.jar" exported="true"/>
+  <classpathentry kind="src" path="assets"/>
+</classpath>
