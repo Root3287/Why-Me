@@ -1,11 +1,14 @@
 package me.timothy.whyme;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.Game;
+
+import me.timothy.whyme.screens.Splash;
 
 public class whyme extends Game {
+
+	@Override
+	public void create() {
+		setScreen(new Splash());
+	}
 	
 }
