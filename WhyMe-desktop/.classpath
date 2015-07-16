@@ -27,5 +27,7 @@
 	<classpathentry exported="true" kind="lib" path="jar/lwjgl-platform-2.9.2-natives-osx.jar"/>
 	<classpathentry exported="true" kind="lib" path="jar/lwjgl-platform-2.9.2-natives-windows.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/WhyMe-core"/>
+	<classpathentry kind="lib" path="jar/gdx-tools.jar"/>
+	<classpathentry kind="lib" path="jar/gdx-tools-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

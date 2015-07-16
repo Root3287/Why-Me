@@ -4,6 +4,7 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
 
 import me.timothy.WhyMe.entity.player.Player;
+import me.timothy.WhyMe.entity.player.PlayerUsername;
 
 public class Keyboard
   implements InputProcessor
@@ -15,7 +16,7 @@ public class Keyboard
   public static boolean right;
   public static boolean jump;
   public static boolean toggle;
-  private Player p;
+  private Player p = null;
   
   public Keyboard(Player p)
   {
@@ -27,8 +28,8 @@ public class Keyboard
     toggle = this.keys[Keys.ESCAPE];
     this.p = p;
   }
-  
-  public boolean keyDown(int keycode)
+
+public boolean keyDown(int keycode)
   {
     this.keys[keycode] = true;
     switch (keycode)

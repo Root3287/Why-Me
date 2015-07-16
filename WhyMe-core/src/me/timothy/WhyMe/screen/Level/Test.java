@@ -12,9 +12,8 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
-import me.timothy.WhyMe.entity.player.Player;
+import me.timothy.WhyMe.entity.player.PlayerUsername;
 import me.timothy.WhyMe.input.Keyboard;
 
 public class Test
@@ -27,9 +26,10 @@ public class Test
   Texture filtertex;
   Sprite filter;
   Stage stage;
-  Player p;
+  PlayerUsername p;
   int[] foreground = { 1 };
   int[] map_layer = new int[1];
+  boolean refreash = false;
   
   public void show()
   {
@@ -41,16 +41,11 @@ public class Test
     
     this.filtertex = new Texture(Gdx.files.internal("images/Screen.png"));
     this.filter = new Sprite(this.filtertex);
-    
-    this.stage = new Stage();
-    
-    Image bg = new Image(this.filtertex);
-    
-    this.stage.addActor(bg);
-    
-    this.p = new Player((TiledMapTileLayer)this.map.getLayers().get("Collision"));
-    this.p.setX(80.0F);
-    this.p.setY(80.0F);
+    if(!this.refreash){
+    	this.p = new PlayerUsername((TiledMapTileLayer)this.map.getLayers().get("Collision"), "Root3287");
+    	this.p.setX(80.0F);
+        this.p.setY(80.0F);
+    }
     this.camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     System.out.println("W: 51 S: 47 A: 29 D: 32");
     
@@ -82,7 +77,9 @@ public class Test
   public void resize(int width, int height)
   {
     dispose();
+    this.refreash = true;
     show();
+    this.refreash = false;
   }
   
   public void pause() {}
@@ -96,6 +93,5 @@ public class Test
     this.map.dispose();
     this.p.dispose();
     this.renderer.dispose();
-    this.stage.dispose();
   }
 }

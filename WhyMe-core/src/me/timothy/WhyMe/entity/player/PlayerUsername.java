@@ -3,14 +3,17 @@ package me.timothy.WhyMe.entity.player;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 
 import me.timothy.WhyMe.input.Keyboard;
 
-public class Player
+public class PlayerUsername
+extends Player
 {
+  private String username;
   private boolean walking = false;
   private boolean hasGravity = false;
   private boolean canJump = false;
@@ -35,9 +38,12 @@ public class Player
   private float ya;
   private float speed;
   private InputProcessor inputProcess;
+  private BitmapFont font;
   
-  public Player(TiledMapTileLayer collision)
+  public PlayerUsername(TiledMapTileLayer collision, String Username)
   {
+	super(collision);
+	this.font = new BitmapFont(Gdx.files.internal("font/White-8.fnt"));
     this.PlayerTex = new Texture(Gdx.files.internal("images/player/Player-A.png"));
     this.PlayerTex.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
     this.SpriteFront = new Sprite(this.PlayerTex, 0, 0, 16, 16);
@@ -52,11 +58,13 @@ public class Player
     this.inputProcess = Gdx.input.getInputProcessor();
     this.collisionLayer = collision;
     this.speed = 1.5F;
+    this.username = Username;
   }
   
   public void render(SpriteBatch batch)
   {
     update();
+    font.draw(batch, this.username,  this.x - ((username.length() - 1) / 2 * 8)+6, this.y + 32);
     switch (this.side)
     {
     case 0: 

@@ -16,6 +16,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Align;
 
 import me.timothy.WhyMe.screen.Level.Test;
 
@@ -77,18 +78,17 @@ public class MainMenu
     this.wall = new Texture(Gdx.files.internal("images/MainMenu.png"));
     this.finalWall = new Image(this.wall);
     
-    this.table.toFront();
+    this.table.row().align(Align.left);
     this.table.add(this.heading);
-    this.table.getCell(this.heading).spaceBottom(30.0F);
+    this.table.getCell(this.heading).spaceBottom(10.0F);
     this.table.row();
-    this.table.add(this.buttonPlay);
-    this.table.getCell(this.buttonPlay).spaceRight(10.0F);
-    this.table.getCell(this.buttonPlay).spaceLeft(10.0F);
-    this.table.add(this.buttonExit);
-    this.table.getCell(this.buttonExit).spaceLeft(10.0F);
-    this.table.getCell(this.buttonExit).spaceRight(10.0F);
-    this.table.toBack();
     this.table.add(this.finalWall);
+    
+    this.table.align(Align.right);
+    this.table.add(this.buttonPlay);
+    this.table.getCell(this.buttonPlay).spaceRight(5);
+    this.table.add(this.buttonExit);
+    this.table.getCell(this.buttonExit).spaceLeft(5);
     this.stage.addActor(this.table);
   }
   
