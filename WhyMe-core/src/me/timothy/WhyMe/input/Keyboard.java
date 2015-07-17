@@ -16,6 +16,7 @@ public class Keyboard
   public static boolean right;
   public static boolean jump;
   public static boolean toggle;
+  public static boolean exit;
   private Player p = null;
   
   public Keyboard(Player p)
@@ -25,7 +26,8 @@ public class Keyboard
     left = this.keys[Keys.A];
     right = this.keys[Keys.D];
     jump = this.keys[Keys.SPACE];
-    toggle = this.keys[Keys.ESCAPE];
+    //toggle = this.keys[]];
+    exit = this.keys[Keys.ESCAPE];
     this.p = p;
   }
 
@@ -34,25 +36,29 @@ public boolean keyDown(int keycode)
     this.keys[keycode] = true;
     switch (keycode)
     {
-    case 51: 
+    case Keys.W: 
       up = true;
       break;
-    case 47: 
+    case Keys.S: 
       down = true;
       break;
-    case 29: 
+    case Keys.A: 
       left = true;
       break;
-    case 32: 
+    case Keys.D: 
       right = true;
       break;
-    case 62: 
+    case Keys.SPACE: 
       if ((this.p.canJump()) && (this.p.hasGravity())) {
         jump = true;
       }
       break;
     case 251: 
       toggle = true;
+      break;
+    case Keys.ESCAPE:
+    	exit = true;
+    	break;
     }
     return true;
   }
@@ -78,6 +84,10 @@ public boolean keyDown(int keycode)
       break;
     case 251: 
       toggle = false;
+      break;
+    case Keys.ESCAPE:
+    	exit = false;
+    	break;
     }
     return true;
   }

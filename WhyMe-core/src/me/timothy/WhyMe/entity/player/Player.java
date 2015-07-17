@@ -12,7 +12,6 @@ import me.timothy.WhyMe.input.Keyboard;
 
 public class Player
 {
-  private boolean walking = false;
   private boolean hasGravity = false;
   private boolean canJump = false;
   private int side = 0;
@@ -35,7 +34,8 @@ public class Player
   private float xa;
   private float ya;
   private float speed;
-  private InputProcessor inputProcess;
+  @SuppressWarnings("unused")
+private InputProcessor inputProcess;
   private Array<String> inventory;
   
   public Player(TiledMapTileLayer collision)
@@ -106,6 +106,8 @@ public class Player
   
   private void update()
   {
+	if(Keyboard.exit)
+		Gdx.app.exit();
     this.xa = 0.0F;
     this.ya = 0.0F;
     if (this.anim < 7500) {
@@ -151,11 +153,10 @@ public class Player
     }
     if ((this.xa != 0.0F) || (this.ya != 0.0F))
     {
-      this.walking = true;move(this.xa, this.ya);
+      move(this.xa, this.ya);
     }
     else
     {
-      this.walking = false;
     }
     if (Keyboard.toggle) {
       this.hasGravity = (!this.hasGravity);
