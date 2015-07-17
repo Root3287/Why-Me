@@ -87,9 +87,7 @@ public class MainMenu
     
     this.table.align(Align.right);
     this.table.add(this.buttonPlay);
-    this.table.getCell(this.buttonPlay).spaceRight(5);
     this.table.add(this.buttonExit);
-    this.table.getCell(this.buttonExit).spaceLeft(5);
     this.stage.addActor(this.table);
   }
   

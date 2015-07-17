@@ -1,10 +1,8 @@
 package me.timothy.WhyMe.screen.Level;
 
-import me.timothy.WhyMe.entity.player.Player;
-import me.timothy.WhyMe.input.Keyboard;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.GL30;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.MapProperties;
@@ -12,6 +10,9 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+
+import me.timothy.WhyMe.entity.player.Player;
+import me.timothy.WhyMe.input.Keyboard;
 
 public class School
   implements Screen
@@ -48,7 +49,7 @@ public class School
   
   public void render(float delta)
   {
-    Gdx.gl.glClear(16384);
+    Gdx.gl.glClear(GL30.GL_COLOR_BUFFER_BIT);
     Gdx.gl.glClearColor(0.0F, 0.0F, 0.0F, 1.0F);
     
     this.camera.position.x = this.p.getX();
@@ -78,7 +79,9 @@ public class School
   
   public void resume() {}
   
-  public void hide() {}
+  public void hide() {
+	  dispose();
+  }
   
   public void dispose()
   {

@@ -1,5 +1,6 @@
 package me.timothy.WhyMe.entity.player;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Texture;
@@ -9,6 +10,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.utils.Array;
 
 import me.timothy.WhyMe.input.Keyboard;
+import me.timothy.WhyMe.screen.MainMenu;
 
 public class Player
 {
@@ -107,7 +109,7 @@ private InputProcessor inputProcess;
   private void update()
   {
 	if(Keyboard.exit)
-		Gdx.app.exit();
+		((Game)Gdx.app.getApplicationListener()).setScreen(new MainMenu());
     this.xa = 0.0F;
     this.ya = 0.0F;
     if (this.anim < 7500) {
