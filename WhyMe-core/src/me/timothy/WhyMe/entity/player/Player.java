@@ -53,7 +53,7 @@ private InputProcessor inputProcess;
     this.hasGravity = false;
     this.inputProcess = Gdx.input.getInputProcessor();
     this.collisionLayer = collision;
-    this.speed = 1.5F;
+    this.speed = 2F;
     this.inventory = new Array<String>();
     for(int i=0; i<=30; i++){
     	inventory.add("Knee"+i);
@@ -161,7 +161,7 @@ private InputProcessor inputProcess;
     if (Keyboard.toggle) {
       this.hasGravity = (!this.hasGravity);
     }
-    //System.out.println("X:" + this.x + " Y:" + this.y + " Gravity: " + this.hasGravity + " CanJump: " + this.canJump + " Delta: " + Gdx.graphics.getDeltaTime());
+    System.out.println("X:" + this.x + " Y:" + this.y + " Gravity: " + this.hasGravity + " CanJump: " + this.canJump + " Delta: " + Gdx.graphics.getDeltaTime());
   }
   
   public void move(float xa, float ya)
