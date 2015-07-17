@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.utils.Array;
 
 import me.timothy.WhyMe.input.Keyboard;
 
@@ -35,6 +36,7 @@ public class Player
   private float ya;
   private float speed;
   private InputProcessor inputProcess;
+  private Array<String> inventory;
   
   public Player(TiledMapTileLayer collision)
   {
@@ -52,6 +54,11 @@ public class Player
     this.inputProcess = Gdx.input.getInputProcessor();
     this.collisionLayer = collision;
     this.speed = 1.5F;
+    this.inventory = new Array<String>();
+    for(int i=0; i<=30; i++){
+    	inventory.add("Knee"+i);
+    	System.out.println("ADDED "+ inventory.get(i));
+    }
   }
   
   public void render(SpriteBatch batch)
@@ -153,7 +160,7 @@ public class Player
     if (Keyboard.toggle) {
       this.hasGravity = (!this.hasGravity);
     }
-    System.out.println("X:" + this.x + " Y:" + this.y + " Gravity: " + this.hasGravity + " CanJump: " + this.canJump + " Delta: " + Gdx.graphics.getDeltaTime());
+    //System.out.println("X:" + this.x + " Y:" + this.y + " Gravity: " + this.hasGravity + " CanJump: " + this.canJump + " Delta: " + Gdx.graphics.getDeltaTime());
   }
   
   public void move(float xa, float ya)
@@ -293,5 +300,20 @@ public class Player
   
   public void dispose() {
 	  
+  }
+  public void removeItem(String item){
+	  if(inventory.contains(item, true)){
+		  inventory.removeValue(item,true);
+	  }
+  }
+  public boolean addItem(String item){
+	  if(!(inventory.size<=32)){
+	  inventory.add(item);
+	  return true;
+	  }
+	  return false;
+  }
+  public Array<String> getInventroy(){
+	return inventory;
   }
 }
