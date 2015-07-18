@@ -10,6 +10,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.scenes.scene2d.ui.Window;
 
 import me.timothy.WhyMe.entity.player.Player;
 import me.timothy.WhyMe.input.Keyboard;
@@ -45,6 +46,7 @@ public class School
     Gdx.input.setInputProcessor(new Keyboard(this.p));
     
     this.camera.zoom = 0.3F;
+    Window window;
   }
   
   public void render(float delta)
