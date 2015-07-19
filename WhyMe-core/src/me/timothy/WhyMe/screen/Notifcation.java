@@ -50,12 +50,25 @@ public class Notifcation implements Screen{
 				}
 			}
 		});
+		final TextButton settings = new TextButton("Settings", skin);
+		back.addListener(new ClickListener(){
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				//((Game) Gdx.app.getApplicationListener()).setScreen(new Settings());
+			}
+		});
 		this.window = new Window(this.title, this.skin);
-		this.window.add(this.content).row();
-		this.window.add(back);
+		this.window.pad(16);
+		if(!this.title.equalsIgnoreCase("pause")){
+			this.window.add(this.content).row();
+			this.window.add(back);
+		}else{
+			this.window.add(this.content).row();
+			this.window.add(settings);
+			this.window.add(back);
+		}
 		this.window.setMovable(true);
 		this.window.pack();
-		this.window.center();
 		this.stage.addActor(window);
 	}
 
@@ -70,8 +83,8 @@ public class Notifcation implements Screen{
 
 	@Override
 	public void resize(int width, int height) {
-		
-		
+		dispose();
+		show();
 	}
 
 	@Override
@@ -88,14 +101,15 @@ public class Notifcation implements Screen{
 
 	@Override
 	public void hide() {
-		
+		dispose();
 		
 	}
 
 	@Override
 	public void dispose() {
-		
-		
+		this.skin.dispose();
+		this.stage.dispose();
+		this.atlas.dispose();
 	}
 
 }

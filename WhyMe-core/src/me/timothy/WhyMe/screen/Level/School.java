@@ -54,8 +54,8 @@ public class School
     Gdx.gl.glClear(GL30.GL_COLOR_BUFFER_BIT);
     Gdx.gl.glClearColor(0.0F, 0.0F, 0.0F, 1.0F);
     
-    this.camera.position.x = this.p.getX();
-    this.camera.position.y = this.p.getY();
+    this.camera.position.x = (int) this.p.getX();
+    this.camera.position.y = (int) this.p.getY();
     this.camera.update();
     
     this.renderer.setView(this.camera);
