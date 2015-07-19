@@ -34,7 +34,7 @@ public class Test
     this.prop = this.map.getProperties();
     
     if(!this.refreash){
-    	this.p = new Player((TiledMapTileLayer)this.map.getLayers().get("Collision"));
+    	//this.p = new Player((TiledMapTileLayer)this.map.getLayers().get("Collision"));
     	this.p.setX(1317.0F);
         this.p.setY(800.0F);
     }

@@ -10,7 +10,8 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.utils.Array;
 
 import me.timothy.WhyMe.input.Keyboard;
-import me.timothy.WhyMe.screen.MainMenu;
+import me.timothy.WhyMe.screen.Notifcation;
+import me.timothy.WhyMe.screen.Level.Levels;
 
 public class Player
 {
@@ -36,11 +37,12 @@ public class Player
   private float xa;
   private float ya;
   private float speed;
+  private Levels ReturnScr;
   @SuppressWarnings("unused")
 private InputProcessor inputProcess;
   private Array<String> inventory;
   
-  public Player(TiledMapTileLayer collision)
+  public Player(TiledMapTileLayer collision, Levels level)
   {
     this.PlayerTex = new Texture(Gdx.files.internal("images/player/Player-A.png"));
     this.PlayerTex.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
@@ -57,10 +59,7 @@ private InputProcessor inputProcess;
     this.collisionLayer = collision;
     this.speed = 2F;
     this.inventory = new Array<String>();
-    for(int i=0; i<=30; i++){
-    	inventory.add("Knee"+i);
-    	System.out.println("ADDED "+ inventory.get(i));
-    }
+    this.ReturnScr = level;
   }
   
   public void render(SpriteBatch batch)
@@ -108,8 +107,9 @@ private InputProcessor inputProcess;
   
   private void update()
   {
-	if(Keyboard.exit)
-		((Game)Gdx.app.getApplicationListener()).setScreen(new MainMenu());
+	if(Keyboard.exit){
+		((Game)Gdx.app.getApplicationListener()).setScreen(new Notifcation("pause", "A pause screen", this.ReturnScr));
+	}
     this.xa = 0.0F;
     this.ya = 0.0F;
     if (this.anim < 7500) {

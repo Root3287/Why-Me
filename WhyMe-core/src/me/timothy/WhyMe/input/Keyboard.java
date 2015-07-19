@@ -4,7 +4,6 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
 
 import me.timothy.WhyMe.entity.player.Player;
-import me.timothy.WhyMe.entity.player.PlayerUsername;
 
 public class Keyboard
   implements InputProcessor

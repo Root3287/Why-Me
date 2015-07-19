@@ -10,10 +10,10 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.scenes.scene2d.ui.Window;
 
 import me.timothy.WhyMe.entity.player.Player;
 import me.timothy.WhyMe.input.Keyboard;
+import me.timothy.WhyMe.screen.Notifcation;
 
 public class School
   implements Screen
@@ -26,7 +26,8 @@ public class School
   int[] foreground = { 1 };
   int[] map_layer = new int[1];
   boolean refreash = false;
-  
+  Notifcation pause;
+
   public void show()
   {
     this.camera = new OrthographicCamera();
@@ -36,17 +37,16 @@ public class School
     this.prop = this.map.getProperties();
     
     if(!this.refreash){
-    	this.p = new Player((TiledMapTileLayer)this.map.getLayers().get("Collision"));
+    	this.p = new Player((TiledMapTileLayer)this.map.getLayers().get("Collision"), Levels.SCHOOL);
     	this.p.setX(1317.0F);
         this.p.setY(800.0F);
     }
     this.camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     System.out.println("W: 51 S: 47 A: 29 D: 32");
-    
+
     Gdx.input.setInputProcessor(new Keyboard(this.p));
     
     this.camera.zoom = 0.3F;
-    Window window;
   }
   
   public void render(float delta)

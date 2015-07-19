@@ -27,6 +27,6 @@
 		"default":{"hScrollKnob": "Button.up", "vScrollKnob":"Button.up"}
 	},
 	"com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle":{
-		"default":{"background":black, "titleFont": "white32"}
+		"default":{"titleFont": "white16"}
 	},
 }
