@@ -1,3 +1,5 @@
+// TODO: MAKE PLAYER EXTENDS MOB AND MAKE MOB CLASS
+
 package me.timothy.WhyMe.entity.player;
 
 import com.badlogic.gdx.Game;
@@ -9,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.utils.Array;
 
+import me.timothy.WhyMe.entity.partical.Blood;
 import me.timothy.WhyMe.input.Keyboard;
 import me.timothy.WhyMe.screen.Notifcation;
 import me.timothy.WhyMe.screen.Level.Levels;
@@ -41,7 +44,7 @@ public class Player
   @SuppressWarnings("unused")
 private InputProcessor inputProcess;
   private Array<String> inventory;
-  
+  private Blood b;
   public Player(TiledMapTileLayer collision, Levels level)
   {
     this.PlayerTex = new Texture(Gdx.files.internal("images/player/Player-A.png"));
@@ -60,11 +63,13 @@ private InputProcessor inputProcess;
     this.speed = 2F;
     this.inventory = new Array<String>();
     this.ReturnScr = level;
+    this.b = new Blood(this);
   }
   
   public void render(SpriteBatch batch)
   {
     update();
+    b.render(batch);
     switch (this.side)
     {
     case 0: 
@@ -302,7 +307,7 @@ private InputProcessor inputProcess;
   }
   
   public void dispose() {
-	  
+	 
   }
   public void removeItem(String item){
 	  if(inventory.contains(item, true)){

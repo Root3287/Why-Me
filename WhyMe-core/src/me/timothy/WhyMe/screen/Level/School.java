@@ -38,7 +38,7 @@ public class School
     
     if(!this.refreash){
     	this.p = new Player((TiledMapTileLayer)this.map.getLayers().get("Collision"), Levels.SCHOOL);
-    	this.p.setX(1317.0F);
+    	this.p.setX(1320.0F);
         this.p.setY(800.0F);
     }
     this.camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
