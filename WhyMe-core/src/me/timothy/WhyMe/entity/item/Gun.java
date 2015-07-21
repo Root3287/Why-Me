@@ -1,11 +1,11 @@
 package me.timothy.WhyMe.entity.item;
 
-import me.timothy.WhyMe.entity.player.Player;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
+import me.timothy.WhyMe.entity.mob.player.Player;
 
 public class Gun {
 	private Texture tex;

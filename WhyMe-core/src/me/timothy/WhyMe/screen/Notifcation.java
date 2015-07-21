@@ -23,12 +23,22 @@ public class Notifcation implements Screen{
 	private Window window;
 	private TextureAtlas atlas;
 	private Skin skin;
+	private static float x;
+	private static float y;
 	
 	public Notifcation(String title, String content, Levels Return) {
 		this.title = title;
 		this.content = content;
 		Return_Scr = Return;
-		
+		x = -1;
+		y = -1;
+	}
+	public Notifcation(String title, String content, Levels Return, float x, float y) {
+		this.title = title;
+		this.content = content;
+		Return_Scr = Return;
+		Notifcation.x =x;
+		Notifcation.y = y;
 	}
 
 	@Override
@@ -40,12 +50,13 @@ public class Notifcation implements Screen{
 		Gdx.input.setInputProcessor(this.stage);
 		
 		final TextButton back =new TextButton("Back", skin);
+		if(Notifcation.x !=-1 && Notifcation.y !=-1)
 		back.addListener(new ClickListener(){
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				switch(Notifcation.Return_Scr){
 				case SCHOOL:
-					((Game)Gdx.app.getApplicationListener()).setScreen(new School());
+					((Game)Gdx.app.getApplicationListener()).setScreen(new School(Notifcation.playerLastX(), Notifcation.playerLastY()));
 					break;
 				}
 			}
@@ -111,5 +122,10 @@ public class Notifcation implements Screen{
 		this.stage.dispose();
 		this.atlas.dispose();
 	}
-
+	private static float playerLastX(){
+		return x;
+	}
+	private static float playerLastY(){
+		return y;
+	}
 }

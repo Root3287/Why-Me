@@ -1,6 +1,6 @@
 package me.timothy.WhyMe.screen.Level;
 
-import me.timothy.WhyMe.entity.player.Player;
+import me.timothy.WhyMe.entity.mob.player.Player;
 import me.timothy.WhyMe.input.Keyboard;
 
 import com.badlogic.gdx.Gdx;

@@ -1,5 +1,6 @@
 package me.timothy.WhyMe.screen;
 
+import me.timothy.WhyMe.screen.Level.ParticalTest;
 import me.timothy.WhyMe.screen.Level.School;
 import me.timothy.WhyMe.screen.Level.Test;
 
@@ -65,7 +66,7 @@ public class MainMenu
     {
       public void clicked(InputEvent event, float x, float y)
       {
-        ((Game)Gdx.app.getApplicationListener()).setScreen(new School());
+        ((Game)Gdx.app.getApplicationListener()).setScreen(new ParticalTest());
       }
     });
     this.buttonExit.pad(10.0F);

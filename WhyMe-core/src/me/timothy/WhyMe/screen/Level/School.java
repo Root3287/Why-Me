@@ -11,7 +11,8 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
-import me.timothy.WhyMe.entity.player.Player;
+import me.timothy.WhyMe.entity.mob.player.Player;
+import me.timothy.WhyMe.entity.partical.particals.Blood;
 import me.timothy.WhyMe.input.Keyboard;
 import me.timothy.WhyMe.screen.Notifcation;
 
@@ -27,7 +28,16 @@ public class School
   int[] map_layer = new int[1];
   boolean refreash = false;
   Notifcation pause;
-
+  Blood b;
+  public School(){
+	  show();
+	  this.p = new Player((TiledMapTileLayer)this.map.getLayers().get("Collision"), 1320,800,Levels.SCHOOL);
+	  b = new Blood(1320, 800, 10000000);
+  }
+  public School(float x, float y) {
+	  //1320 800
+	  this.p = new Player((TiledMapTileLayer)this.map.getLayers().get("Collision"), x,y,Levels.SCHOOL);
+  }
   public void show()
   {
     this.camera = new OrthographicCamera();
@@ -36,11 +46,6 @@ public class School
     this.renderer = new OrthogonalTiledMapRenderer(this.map);
     this.prop = this.map.getProperties();
     
-    if(!this.refreash){
-    	this.p = new Player((TiledMapTileLayer)this.map.getLayers().get("Collision"), Levels.SCHOOL);
-    	this.p.setX(1320.0F);
-        this.p.setY(800.0F);
-    }
     this.camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     System.out.println("W: 51 S: 47 A: 29 D: 32");
 
@@ -64,6 +69,7 @@ public class School
     
     this.renderer.getBatch().begin();
     this.p.render((SpriteBatch)this.renderer.getBatch());
+    b.render((SpriteBatch) renderer.getBatch());
     this.renderer.getBatch().end();
     
     this.renderer.render(this.foreground);
