@@ -24,12 +24,7 @@ public class ParticalTest implements Screen{
 		batch.begin();
 		b.render(batch);
 		batch.end();
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 
 	@Override

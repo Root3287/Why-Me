@@ -28,11 +28,9 @@ public class School
   int[] map_layer = new int[1];
   boolean refreash = false;
   Notifcation pause;
-  Blood b;
   public School(){
 	  show();
 	  this.p = new Player((TiledMapTileLayer)this.map.getLayers().get("Collision"), 1320,800,Levels.SCHOOL);
-	  b = new Blood(1320, 800, 10000000);
   }
   public School(float x, float y) {
 	  //1320 800
@@ -69,7 +67,6 @@ public class School
     
     this.renderer.getBatch().begin();
     this.p.render((SpriteBatch)this.renderer.getBatch());
-    b.render((SpriteBatch) renderer.getBatch());
     this.renderer.getBatch().end();
     
     this.renderer.render(this.foreground);

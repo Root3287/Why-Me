@@ -23,18 +23,14 @@ public class Blood extends Partical{
 	@Override
 	public void update() {
 		xa= 0; ya=0;
-		if(this.mob !=null){
-			x = mob.getX();
-			y = mob.getY();
 			xa = 2;
-			ya = (float) (Math.sqrt(x)-x);
+			ya = (float) (7*Math.sqrt(1.5*x)-x);
 			x+=xa;
 			y+=ya;
-		}else{
-			xa = 2;
-			ya = (float) (Math.sqrt(x)-x);
-			x+=xa;
-			y+=ya;
+		try {
+			Thread.sleep(1000/16);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 		System.out.println("x"+x+"y"+y);
 	}
