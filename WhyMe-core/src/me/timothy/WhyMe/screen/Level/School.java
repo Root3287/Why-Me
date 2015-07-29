@@ -82,6 +82,7 @@ public class School
     this.renderer.setView(this.camera);
     
     this.renderer.render(this.map_layer);
+    if(p.isPaused()){DialogMessage pause = new DialogMessage("pause", "You have been paused", skin); pause.show(stage);}
     stage.act();stage.draw();
     this.renderer.getBatch().begin();
     this.p.render((SpriteBatch)this.renderer.getBatch());

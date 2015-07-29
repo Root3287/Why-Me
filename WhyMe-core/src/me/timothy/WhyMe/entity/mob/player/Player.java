@@ -1,8 +1,5 @@
-// TODO: MAKE PLAYER EXTENDS MOB AND MAKE MOB CLASS
-
 package me.timothy.WhyMe.entity.mob.player;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Texture;
@@ -13,7 +10,6 @@ import com.badlogic.gdx.utils.Array;
 
 import me.timothy.WhyMe.entity.mob.Mob;
 import me.timothy.WhyMe.input.Keyboard;
-import me.timothy.WhyMe.screen.Notifcation;
 import me.timothy.WhyMe.screen.Level.Levels;
 
 public class Player
@@ -32,11 +28,12 @@ extends Mob
   private Sprite SpriteRight2;
   private Sprite current;
   private int anim;
-  private Levels ReturnScr;
+  //private Levels ReturnScr;
   @SuppressWarnings("unused")
-private InputProcessor inputProcess;
+  private InputProcessor inputProcess;
   private Array<String> inventory;
- 
+  private boolean paused;
+  
   public Player(TiledMapTileLayer collision, float x, float y, Levels level)
   {
 	super(collision, false, x, y);
@@ -106,7 +103,12 @@ private InputProcessor inputProcess;
   protected void update()
   {
 	if(Keyboard.exit){
-		((Game)Gdx.app.getApplicationListener()).setScreen(new Notifcation("pause", "A pause screen", this.ReturnScr));
+		//if(this.stage == null && this.skin == null){
+		//	((Game)Gdx.app.getApplicationListener()).setScreen(new Notifcation("pause", "A pause screen", this.ReturnScr));
+		//}else{
+		//	
+		//}
+		paused = true;
 	}
     this.xa = 0.0F;
     this.ya = 0.0F;
@@ -165,7 +167,7 @@ private InputProcessor inputProcess;
     if (Keyboard.toggle) {
       this.hasGravity = (!this.hasGravity);
     }
-    System.out.println("X:" + this.x + " Y:" + this.y + " Gravity: " + this.hasGravity + " CanJump: " + this.canJump + " Delta: " + Gdx.graphics.getDeltaTime());
+    //System.out.println("X:" + this.x + " Y:" + this.y + " Gravity: " + this.hasGravity + " CanJump: " + this.canJump + " Delta: " + Gdx.graphics.getDeltaTime());
   }
   
   public void canJump(boolean canJump)
@@ -194,9 +196,14 @@ private InputProcessor inputProcess;
 	return inventory;
   }
 
-@Override
-public void dispose() {
-	// TODO Auto-generated method stub
+  @Override
+  public void dispose() {
 	
-}
+  }
+  public boolean isPaused(){
+	  return paused;
+  }
+  public void pause(boolean pause){
+	  this.paused = pause;
+  }
 }
