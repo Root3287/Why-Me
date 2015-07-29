@@ -3,6 +3,7 @@ package me.timothy.WhyMe.entity.mob.player;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
@@ -38,7 +39,7 @@ extends Mob
   {
 	super(collision, false, x, y);
     this.tex = new Texture(Gdx.files.internal("images/player/Player-A.png"));
-    this.tex.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
+    //this.tex.setFilter(TextureFilter., TextureFilter.MipMapNearestNearest);
     this.SpriteFront = new Sprite(this.tex, 0, 0, 16, 16);
     this.SpriteFront2 = new Sprite(this.tex, 0, 16, 16, 16);
     this.SpriteLeft = new Sprite(this.tex, 16, 0, 16, 16);
@@ -102,14 +103,6 @@ extends Mob
   
   protected void update()
   {
-	if(Keyboard.exit){
-		//if(this.stage == null && this.skin == null){
-		//	((Game)Gdx.app.getApplicationListener()).setScreen(new Notifcation("pause", "A pause screen", this.ReturnScr));
-		//}else{
-		//	
-		//}
-		paused = true;
-	}
     this.xa = 0.0F;
     this.ya = 0.0F;
     if (this.anim < 7500) {

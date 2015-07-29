@@ -1,8 +1,9 @@
-package me.timothy.WhyMe.screen.Level;
+ package me.timothy.WhyMe.screen.Level;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.GL30;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -17,7 +18,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 import me.timothy.WhyMe.entity.mob.player.Player;
 import me.timothy.WhyMe.input.Keyboard;
-import me.timothy.WhyMe.screen.Notifcation;
 import me.timothy.WhyMe.screen.other.DialogMessage;
 
 public class School
@@ -31,14 +31,15 @@ public class School
   int[] foreground = { 1 };
   int[] map_layer = new int[1];
   boolean refreash = false;
-  Notifcation pause;
   Stage stage;
-  DialogMessage welcome;
+  DialogMessage welcome,pause;
   Skin skin;
   
   public School(){
 	  show();
 	  this.p = new Player((TiledMapTileLayer)this.map.getLayers().get("Collision"), 1320,800,Levels.SCHOOL);
+	  this.welcome = new DialogMessage("Welcome", "Why this place?", skin);
+	    this.welcome.show(stage);
   }
   public School(float x, float y) {
 	  //1320 800
@@ -64,10 +65,6 @@ public class School
     Gdx.input.setInputProcessor(im);
     
     this.camera.zoom = 0.3F;
-    
-   
-    this.welcome = new DialogMessage("Welcome", "Why this place?", skin);
-    this.welcome.show(stage);
   }
   
   public void render(float delta)
@@ -82,21 +79,30 @@ public class School
     this.renderer.setView(this.camera);
     
     this.renderer.render(this.map_layer);
-    if(p.isPaused()){DialogMessage pause = new DialogMessage("pause", "You have been paused", skin); pause.show(stage);}
-    stage.act();stage.draw();
+    
     this.renderer.getBatch().begin();
     this.p.render((SpriteBatch)this.renderer.getBatch());
     this.renderer.getBatch().end();
+    
+    
+    if(Gdx.input.isKeyJustPressed(Keys.ESCAPE)){
+    	this.pause = new DialogMessage("pause", "You have been paused", skin);
+    	this.pause.show(this.stage);
+    }
+    stage.act();
+    stage.draw();
     
     this.renderer.render(this.foreground);
   }
   
   public void resize(int width, int height)
   {
-    dispose();
-    this.refreash = true;
-    show();
-    this.refreash = false;
+    //dispose();
+    //show();
+	  camera.viewportWidth = width;
+	  camera.viewportHeight = height;
+	  camera.update();
+	  this.stage.getViewport().setScreenSize(width, height);
   }
   
   public void pause() {}
@@ -112,5 +118,7 @@ public class School
     this.map.dispose();
     this.p.dispose();
     this.renderer.dispose();
+    this.stage.dispose();
+    this.skin.dispose();
   }
 }
