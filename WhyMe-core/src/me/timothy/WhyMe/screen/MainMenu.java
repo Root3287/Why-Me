@@ -17,6 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 import me.timothy.WhyMe.screen.Level.School;
 
@@ -26,7 +27,6 @@ public class MainMenu
   OrthographicCamera camera;
   SpriteBatch batch;
   private Stage stage;
-  private TextureAtlas atlas;
   private Skin skin;
   private Table table;
   private TextButton buttonPlay;
@@ -45,14 +45,13 @@ public class MainMenu
       this.bg.setLooping(true);
       this.bg.play();
     }
-    this.atlas = new TextureAtlas("ui/Buttons.pack");
-    this.skin = new Skin(Gdx.files.internal("ui/Menu.json"), this.atlas);
+    this.skin = new Skin(Gdx.files.internal("ui/Menu.json"), new TextureAtlas("ui/Buttons.pack"));
     
     this.stage = new Stage();
     Gdx.input.setInputProcessor(this.stage);
     
     this.table = new Table(this.skin);
-    this.table.setBounds(0.0F, 0.0F, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+    this.table.setFillParent(true);
     
     this.heading = new Label("Why Me?", this.skin);
     
@@ -101,10 +100,8 @@ public class MainMenu
   
   public void resize(int width, int height)
   {
-    this.refreash = true;
-    dispose();
-    show();
-    this.refreash = false;
+   this.stage.getViewport().setScreenSize(width, height);
+   this.table.invalidateHierarchy();
   }
   
   public void pause() {}
@@ -118,12 +115,7 @@ public class MainMenu
   
   public void dispose()
   {
-    this.atlas.dispose();
     this.stage.dispose();
-    if (!this.refreash)
-    {
-      this.bg.stop();
-      this.bg.dispose();
-    }
+    this.bg.dispose();
   }
 }
