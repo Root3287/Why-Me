@@ -1,19 +1,24 @@
 package me.timothy.WhyMe.screen.Level;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL30;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 import me.timothy.WhyMe.entity.mob.player.Player;
 import me.timothy.WhyMe.input.Keyboard;
 import me.timothy.WhyMe.screen.Notifcation;
+import me.timothy.WhyMe.screen.other.DialogMessage;
 
 public class School
   implements Screen
@@ -27,6 +32,10 @@ public class School
   int[] map_layer = new int[1];
   boolean refreash = false;
   Notifcation pause;
+  Stage stage;
+  DialogMessage welcome;
+  Skin skin;
+  
   public School(){
 	  show();
 	  this.p = new Player((TiledMapTileLayer)this.map.getLayers().get("Collision"), 1320,800,Levels.SCHOOL);
@@ -37,6 +46,8 @@ public class School
   }
   public void show()
   {
+	this.stage = new Stage();
+	this.skin = new Skin(Gdx.files.internal("ui/Menu.json"), new TextureAtlas("ui/Buttons.pack"));
     this.camera = new OrthographicCamera();
     
     this.map = new TmxMapLoader().load("images/Level/School.tmx");
@@ -46,9 +57,17 @@ public class School
     this.camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     System.out.println("W: 51 S: 47 A: 29 D: 32");
 
-    Gdx.input.setInputProcessor(new Keyboard(this.p));
+    InputMultiplexer im = new InputMultiplexer();
+    im.addProcessor(stage);
+    im.addProcessor(new Keyboard(this.p));
+    
+    Gdx.input.setInputProcessor(im);
     
     this.camera.zoom = 0.3F;
+    
+   
+    this.welcome = new DialogMessage("Welcome", "Why this place?", skin);
+    this.welcome.show(stage);
   }
   
   public void render(float delta)
@@ -63,7 +82,7 @@ public class School
     this.renderer.setView(this.camera);
     
     this.renderer.render(this.map_layer);
-    
+    stage.act();stage.draw();
     this.renderer.getBatch().begin();
     this.p.render((SpriteBatch)this.renderer.getBatch());
     this.renderer.getBatch().end();
