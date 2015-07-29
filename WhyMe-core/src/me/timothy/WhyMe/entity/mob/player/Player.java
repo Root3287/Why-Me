@@ -54,7 +54,7 @@ extends Mob
     this.inventory = new Array<String>();
     this.width = 16;
     this.height = 14;
-    this.ReturnScr = level;
+  //  this.ReturnScr = level;
   }
   
   public void render(SpriteBatch batch)
