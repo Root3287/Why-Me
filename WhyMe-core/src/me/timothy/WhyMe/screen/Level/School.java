@@ -12,7 +12,6 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
 import me.timothy.WhyMe.entity.mob.player.Player;
-import me.timothy.WhyMe.entity.partical.particals.Blood;
 import me.timothy.WhyMe.input.Keyboard;
 import me.timothy.WhyMe.screen.Notifcation;
 
