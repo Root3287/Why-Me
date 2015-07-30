@@ -38,8 +38,6 @@ public class School
   public School(){
 	  show();
 	  this.p = new Player((TiledMapTileLayer)this.map.getLayers().get("Collision"), 1320,800,Levels.SCHOOL);
-	  this.welcome = new DialogMessage("Welcome", "Why this place?", skin);
-	    this.welcome.show(stage);
   }
   public School(float x, float y) {
 	  //1320 800
@@ -56,7 +54,6 @@ public class School
     this.prop = this.map.getProperties();
     
     this.camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-    System.out.println("W: 51 S: 47 A: 29 D: 32");
 
     InputMultiplexer im = new InputMultiplexer();
     im.addProcessor(stage);
@@ -65,6 +62,11 @@ public class School
     Gdx.input.setInputProcessor(im);
     
     this.camera.zoom = 0.3F;
+    new DialogMessage("Welcome",this.skin, "dialog"){
+    	{
+    		init("Welcome!\n This is very early!");
+    	}
+    }.show(stage);
   }
   
   public void render(float delta)
@@ -86,8 +88,11 @@ public class School
     
     
     if(Gdx.input.isKeyJustPressed(Keys.ESCAPE)){
-    	this.pause = new DialogMessage("pause", "You have been paused", skin);
-    	this.pause.show(this.stage);
+    	new DialogMessage("Pause", skin, "dialog"){
+    		{
+    			init("You have been paused");
+    		}
+    	}.show(stage);
     }
     stage.act();
     stage.draw();
@@ -103,6 +108,7 @@ public class School
 	  camera.viewportHeight = height;
 	  camera.update();
 	  this.stage.getViewport().setScreenSize(width, height);
+	  
   }
   
   public void pause() {}

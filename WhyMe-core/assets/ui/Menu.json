@@ -18,18 +18,20 @@
 	},
 	"com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle":{
 		"default":{"font":white64, "fontColor":white},
+		"dialog":{"font":white16, "fontColor":white},
 	},
 	"com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle":{
-		"default":{"up": "Button.up", "down": "Button.down","font":black32,"pressedOffsetX": 1, "pressedOffsetY": -1,},
+		"default":{"up": "Button.Up", "down": "Button.Down","font":black32,"pressedOffsetX": 1, "pressedOffsetY": -1,},
+		"dialog":{"up": "Button.Up", "down": "Button.Down","font":black16,"pressedOffsetX": 1, "pressedOffsetY": -1,},
 	},
 	"com.badlogic.gdx.scenes.scene2d.ui.List$ListStyle":{
-		"default":{"font":white64, "fontColorSelected": white, "fontColorUnselected":white, "selection":"Button.selected"},
+		"default":{"font":white64, "fontColorSelected": white, "fontColorUnselected":white, "selection":"Button.Selected"},
 	},
 	"com.badlogic.gdx.scenes.scene2d.ui.ScrollPane$ScrollPaneStyle":{
-		"default":{"hScrollKnob": "Button.up", "vScrollKnob":"Button.up"}
+		"default":{"hScrollKnob": "Button.Up", "vScrollKnob":"Button.Up"}
 	},
 	"com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle":{
 		"default":{"titleFont": "white16"},
-		"dialog": {"titleFont": "black16","background":"Button.invis",},
+		"dialog": {"titleFont": "white16","background":"Button.Black","stageBackground":"Button.Black"},
 	},
 }
