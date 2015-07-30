@@ -32,8 +32,7 @@ public class DialogMessage extends Dialog{
 	}
 	public void init(String Line){
 		Label text = new Label(Line, getSkin(), "dialog");
-		TextButton button = new TextButton("button", getSkin(), "dialog");
-		Button b = new Button();
+		TextButton button = new TextButton("back", getSkin(), "dialog");
 		text(text);
 		button(button);
 		key(Keys.ESCAPE, "back");
