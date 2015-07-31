@@ -27,7 +27,7 @@ public class Welcome implements Screen{
 	private Image screen;
 	@Override
 	public void show() {
-		skin = new Skin(Gdx.files.internal("ui/Menu.json"), new TextureAtlas("ui/buttons.pack"));
+		skin = new Skin(Gdx.files.internal("ui/Menu.json"), new TextureAtlas("ui/Buttons.pack"));
 		stage = new Stage();
 		batch = new SpriteBatch();
 		b = new Bear(null,false,Gdx.graphics.getWidth()/2 - 4*16,Gdx.graphics.getHeight()/2 - 4*16);

@@ -1,24 +1,19 @@
 package me.timothy.WhyMe.screen;
 
+import me.timothy.WhyMe.tween.SpriteAccessor;
 import aurelienribon.tweenengine.BaseTween;
 import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenCallback;
 import aurelienribon.tweenengine.TweenManager;
-import com.badlogic.gdx.Application;
-import com.badlogic.gdx.Audio;
-import com.badlogic.gdx.Files;
+
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import me.timothy.WhyMe.tween.SpriteAccessor;
 
 public class Splash
   implements Screen

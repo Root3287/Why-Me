@@ -1,17 +1,16 @@
 package me.timothy.WhyMe.entity.mob.player;
 
+import me.timothy.WhyMe.entity.mob.Mob;
+import me.timothy.WhyMe.input.Keyboard;
+import me.timothy.WhyMe.screen.Level.Levels;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.utils.Array;
-
-import me.timothy.WhyMe.entity.mob.Mob;
-import me.timothy.WhyMe.input.Keyboard;
-import me.timothy.WhyMe.screen.Level.Levels;
 
 public class Player
 extends Mob

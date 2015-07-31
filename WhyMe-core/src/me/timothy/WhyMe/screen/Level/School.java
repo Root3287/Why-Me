@@ -79,13 +79,6 @@ public class School
     this.camera.update();
     
     this.renderer.setView(this.camera);
-
-    this.renderer.render(this.foreground);
-    
-    this.renderer.getBatch().begin();
-    this.p.render((SpriteBatch)this.renderer.getBatch());
-    this.renderer.getBatch().end();
-    
     
     if(Gdx.input.isKeyJustPressed(Keys.ESCAPE)){
     	new DialogMessage("Pause", skin, "dialog"){
@@ -94,10 +87,19 @@ public class School
     		}
     	}.show(stage);
     }
+    
+   
+
+    this.renderer.render(this.foreground); // Place code around here to make it lined
+    
+    this.renderer.getBatch().begin();
+    this.p.render((SpriteBatch)this.renderer.getBatch());
+    this.renderer.getBatch().end();
+    
+    this.renderer.render(this.map_layer);// Set code under here to make it not lined
+    
     stage.act();
     stage.draw();
-    
-    this.renderer.render(this.map_layer);
   }
   
   public void resize(int width, int height)
