@@ -11,7 +11,7 @@ import com.badlogic.gdx.math.Vector2;
 
 public class GlitchedPlayer
 {
-  private boolean col = false;
+  //private boolean col = false;
   private boolean walking = false;
   private boolean onGround = true;
   private boolean hasGravity = false;
@@ -28,24 +28,24 @@ public class GlitchedPlayer
   private Sprite SpriteRight2;
   private Sprite SpriteFront_1;
   private Sprite SpriteFront2_1;
-  private Sprite SpriteBack_1;
-  private Sprite SpriteBack2_1;
+  //private Sprite SpriteBack_1;
+  //private Sprite SpriteBack2_1;
   private Sprite SpriteLeft_1;
   private Sprite SpriteLeft2_1;
   private Sprite SpriteRight_1;
   private Sprite SpriteRight2_1;
   private Sprite SpriteFront_2;
   private Sprite SpriteFront2_2;
-  private Sprite SpriteBack_2;
-  private Sprite SpriteBack2_2;
+  //private Sprite SpriteBack_2;
+  //private Sprite SpriteBack2_2;
   private Sprite SpriteLeft_2;
   private Sprite SpriteLeft2_2;
   private Sprite SpriteRight_2;
   private Sprite SpriteRight2_2;
   private Sprite SpriteFront_3;
   private Sprite SpriteFront2_3;
-  private Sprite SpriteBack_3;
-  private Sprite SpriteBack2_3;
+  //private Sprite SpriteBack_3;
+  //private Sprite SpriteBack2_3;
   private Sprite SpriteLeft_3;
   private Sprite SpriteLeft2_3;
   private Sprite SpriteRight_3;
@@ -75,8 +75,8 @@ public class GlitchedPlayer
     this.SpriteLeft2_1 = new Sprite(this.PlayerTex, 80, 16, 16, 16);
     this.SpriteRight_1 = new Sprite(this.PlayerTex, 96, 0, 16, 16);
     this.SpriteRight2_1 = new Sprite(this.PlayerTex, 96, 16, 16, 16);
-    this.SpriteBack_1 = new Sprite(this.PlayerTex, 112, 0, 16, 16);
-    this.SpriteBack2_1 = new Sprite(this.PlayerTex, 112, 16, 16, 16);
+    //this.SpriteBack_1 = new Sprite(this.PlayerTex, 112, 0, 16, 16);
+    //this.SpriteBack2_1 = new Sprite(this.PlayerTex, 112, 16, 16, 16);
     
     this.SpriteFront_2 = new Sprite(this.PlayerTex, 128, 0, 16, 16);
     this.SpriteFront2_2 = new Sprite(this.PlayerTex, 128, 16, 16, 16);
@@ -84,8 +84,8 @@ public class GlitchedPlayer
     this.SpriteLeft2_2 = new Sprite(this.PlayerTex, 144, 16, 16, 16);
     this.SpriteRight_2 = new Sprite(this.PlayerTex, 160, 0, 16, 16);
     this.SpriteRight2_2 = new Sprite(this.PlayerTex, 160, 16, 16, 16);
-    this.SpriteBack_2 = new Sprite(this.PlayerTex, 176, 0, 16, 16);
-    this.SpriteBack2_2 = new Sprite(this.PlayerTex, 176, 16, 16, 16);
+    //this.SpriteBack_2 = new Sprite(this.PlayerTex, 176, 0, 16, 16);
+    //this.SpriteBack2_2 = new Sprite(this.PlayerTex, 176, 16, 16, 16);
     
     this.SpriteFront_3 = new Sprite(this.PlayerTex, 192, 0, 16, 16);
     this.SpriteFront2_3 = new Sprite(this.PlayerTex, 192, 16, 16, 16);
@@ -93,8 +93,8 @@ public class GlitchedPlayer
     this.SpriteLeft2_3 = new Sprite(this.PlayerTex, 208, 16, 16, 16);
     this.SpriteRight_3 = new Sprite(this.PlayerTex, 224, 0, 16, 16);
     this.SpriteRight2_3 = new Sprite(this.PlayerTex, 224, 16, 16, 16);
-    this.SpriteBack_3 = new Sprite(this.PlayerTex, 240, 0, 16, 16);
-    this.SpriteBack2_3 = new Sprite(this.PlayerTex, 240, 16, 16, 16);
+    //this.SpriteBack_3 = new Sprite(this.PlayerTex, 240, 0, 16, 16);
+    //this.SpriteBack2_3 = new Sprite(this.PlayerTex, 240, 16, 16, 16);
     
     this.hasGravity = false;
     this.onGround = false;

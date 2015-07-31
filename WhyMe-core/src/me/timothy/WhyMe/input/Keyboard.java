@@ -1,10 +1,10 @@
 package me.timothy.WhyMe.input;
 
 import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.InputProcessor;
 
-import me.timothy.WhyMe.entity.player.Player;
-import me.timothy.WhyMe.entity.player.PlayerUsername;
+import me.timothy.WhyMe.entity.mob.player.Player;
+
+import com.badlogic.gdx.InputProcessor;
 
 public class Keyboard
   implements InputProcessor

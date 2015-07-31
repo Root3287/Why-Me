@@ -1,17 +1,16 @@
 package me.timothy.WhyMe.screen.Level;
 
-import me.timothy.WhyMe.entity.player.Player;
-import me.timothy.WhyMe.input.Keyboard;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+
+import me.timothy.WhyMe.entity.mob.player.Player;
+import me.timothy.WhyMe.input.Keyboard;
 
 public class Test
   implements Screen
@@ -34,7 +33,7 @@ public class Test
     this.prop = this.map.getProperties();
     
     if(!this.refreash){
-    	this.p = new Player((TiledMapTileLayer)this.map.getLayers().get("Collision"));
+    	//this.p = new Player((TiledMapTileLayer)this.map.getLayers().get("Collision"));
     	this.p.setX(1317.0F);
         this.p.setY(800.0F);
     }
