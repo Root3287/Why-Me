@@ -1,9 +1,14 @@
  package me.timothy.WhyMe.screen.Level;
 
+import me.timothy.WhyMe.entity.block.Blocks.Signs;
+import me.timothy.WhyMe.entity.mob.player.Player;
+import me.timothy.WhyMe.input.Keyboard;
+import me.timothy.WhyMe.screen.other.DialogMessage;
+
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.GL30;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -15,10 +20,6 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-
-import me.timothy.WhyMe.entity.mob.player.Player;
-import me.timothy.WhyMe.input.Keyboard;
-import me.timothy.WhyMe.screen.other.DialogMessage;
 
 public class School
   implements Screen
@@ -34,15 +35,8 @@ public class School
   Stage stage;
   DialogMessage welcome,pause;
   Skin skin;
+  Signs s;
   
-  public School(){
-	  show();
-	  this.p = new Player((TiledMapTileLayer)this.map.getLayers().get("Collision"), 1320,800,Levels.SCHOOL);
-  }
-  public School(float x, float y) {
-	  //1320 800
-	  this.p = new Player((TiledMapTileLayer)this.map.getLayers().get("Collision"), x,y,Levels.SCHOOL);
-  }
   public void show()
   {
 	this.stage = new Stage();
@@ -67,6 +61,13 @@ public class School
     		init("Welcome!\n This is very early!","ok");
     	}
     }.show(stage);
+    
+    
+    this.p = new Player((TiledMapTileLayer)this.map.getLayers().get("Collision"), 1320,800,Levels.SCHOOL);
+    this.p.addStage(stage);
+    this.p.addSkin(skin);
+    
+    this.s = new Signs(p, 1321, 810, "Some content", stage, skin);
   }
   
   public void render(float delta)
@@ -93,7 +94,10 @@ public class School
     this.renderer.render(this.foreground); // Place code around here to make it lined
     
     this.renderer.getBatch().begin();
+    
+    this.s.draw((SpriteBatch)this.renderer.getBatch());
     this.p.render((SpriteBatch)this.renderer.getBatch());
+    
     this.renderer.getBatch().end();
     
     this.renderer.render(this.map_layer);// Set code under here to make it not lined

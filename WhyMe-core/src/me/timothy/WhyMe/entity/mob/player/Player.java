@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
 import com.badlogic.gdx.utils.Array;
 
 public class Player
@@ -102,6 +103,7 @@ extends Mob
   
   protected void update()
   {
+	 
     this.xa = 0.0F;
     this.ya = 0.0F;
     if (this.anim < 7500) {
@@ -159,7 +161,7 @@ extends Mob
     if (Keyboard.toggle) {
       this.hasGravity = (!this.hasGravity);
     }
-    //System.out.println("X:" + this.x + " Y:" + this.y + " Gravity: " + this.hasGravity + " CanJump: " + this.canJump + " Delta: " + Gdx.graphics.getDeltaTime());
+    System.out.println("X:" + this.x + " Y:" + this.y + " Gravity: " + this.hasGravity + " CanJump: " + this.canJump + " Delta: " + Gdx.graphics.getDeltaTime());
   }
   
   public void canJump(boolean canJump)
