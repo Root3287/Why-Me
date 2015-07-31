@@ -22,6 +22,25 @@ public class DialogMessage extends Dialog{
 	public DialogMessage(String title,WindowStyle windowStyle) {
 		super(title, windowStyle);
 	}
+	
+	public DialogMessage(String title, Skin skin, String windowStyleName, float x, float y) {
+		super(title, skin, windowStyleName);
+		pack();
+		setPosition(x, y);
+	}
+
+	public DialogMessage(String title, Skin skin, float x, float y) {
+		super(title, skin);
+		pack();
+		setPosition(x, y);
+	}
+
+	public DialogMessage(String title,WindowStyle windowStyle, float x, float y) {
+		super(title, windowStyle);
+		pack();
+		setPosition(x, y);
+	}
+	
 	@Override
 	protected void result(Object object) {
 		if(object == "back"){
@@ -30,9 +49,9 @@ public class DialogMessage extends Dialog{
 			remove();
 		}
 	}
-	public void init(String Line){
+	public void init(String Line,String ButtonText){
 		Label text = new Label(Line, getSkin(), "dialog");
-		TextButton button = new TextButton("back", getSkin(), "dialog");
+		TextButton button = new TextButton(ButtonText, getSkin(), "dialog");
 		text(text);
 		button(button);
 		key(Keys.ESCAPE, "back");

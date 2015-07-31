@@ -1,5 +1,7 @@
 package me.timothy.WhyMe.screen;
 
+import me.timothy.WhyMe.screen.Level.Welcome;
+
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -17,8 +19,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
-
-import me.timothy.WhyMe.screen.Level.School;
 
 public class MainMenu
   implements Screen
@@ -62,7 +62,7 @@ public class MainMenu
     {
       public void clicked(InputEvent event, float x, float y)
       {
-        ((Game)Gdx.app.getApplicationListener()).setScreen(new School());
+        ((Game)Gdx.app.getApplicationListener()).setScreen(new Welcome());
       }
     });
     this.buttonExit.pad(10.0F);

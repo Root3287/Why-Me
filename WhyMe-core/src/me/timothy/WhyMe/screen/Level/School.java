@@ -28,8 +28,8 @@ public class School
   MapProperties prop;
   OrthogonalTiledMapRenderer renderer;
   Player p;
-  int[] foreground = { 1 };
-  int[] map_layer = new int[1];
+  int[] foreground = { 0 };
+  int[] map_layer = {1};
   boolean refreash = false;
   Stage stage;
   DialogMessage welcome,pause;
@@ -64,7 +64,7 @@ public class School
     this.camera.zoom = 0.3F;
     new DialogMessage("Welcome",this.skin, "dialog"){
     	{
-    		init("Welcome!\n This is very early!");
+    		init("Welcome!\n This is very early!","ok");
     	}
     }.show(stage);
   }
@@ -79,8 +79,8 @@ public class School
     this.camera.update();
     
     this.renderer.setView(this.camera);
-    
-    this.renderer.render(this.map_layer);
+
+    this.renderer.render(this.foreground);
     
     this.renderer.getBatch().begin();
     this.p.render((SpriteBatch)this.renderer.getBatch());
@@ -90,14 +90,14 @@ public class School
     if(Gdx.input.isKeyJustPressed(Keys.ESCAPE)){
     	new DialogMessage("Pause", skin, "dialog"){
     		{
-    			init("You have been paused");
+    			init("You have been paused","Ok");
     		}
     	}.show(stage);
     }
     stage.act();
     stage.draw();
     
-    this.renderer.render(this.foreground);
+    this.renderer.render(this.map_layer);
   }
   
   public void resize(int width, int height)

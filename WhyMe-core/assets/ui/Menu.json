@@ -33,5 +33,6 @@
 	"com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle":{
 		"default":{"titleFont": "white16"},
 		"dialog": {"titleFont": "white16","background":"Button.Black","stageBackground":"Button.Black"},
+		"dialog invisablebg": {"titleFont": "white16",},
 	},
 }
