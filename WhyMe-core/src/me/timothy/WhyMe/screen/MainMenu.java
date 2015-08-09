@@ -1,6 +1,6 @@
 package me.timothy.WhyMe.screen;
 
-import me.timothy.WhyMe.screen.Level.Welcome;
+import me.timothy.WhyMe.screen.Level.GravityTest;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -62,7 +62,7 @@ public class MainMenu
     {
       public void clicked(InputEvent event, float x, float y)
       {
-        ((Game)Gdx.app.getApplicationListener()).setScreen(new Welcome());
+        ((Game)Gdx.app.getApplicationListener()).setScreen(new GravityTest());
       }
     });
     this.buttonExit.pad(10.0F);

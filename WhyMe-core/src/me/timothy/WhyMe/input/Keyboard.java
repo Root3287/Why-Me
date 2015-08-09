@@ -1,9 +1,9 @@
 package me.timothy.WhyMe.input;
 
-import com.badlogic.gdx.Input.Keys;
-
+import me.timothy.WhyMe.entity.mob.Mob;
 import me.timothy.WhyMe.entity.mob.player.Player;
 
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
 
 public class Keyboard
@@ -17,9 +17,9 @@ public class Keyboard
   public static boolean jump;
   public static boolean toggle;
   public static boolean exit;
-  private Player p = null;
+  private Mob p = null;
   
-  public Keyboard(Player p)
+  public Keyboard(Mob p)
   {
     up = this.keys[Keys.W];
     down = this.keys[Keys.S];
@@ -49,7 +49,7 @@ public boolean keyDown(int keycode)
       right = true;
       break;
     case Keys.SPACE: 
-      if ((this.p.canJump()) && (this.p.hasGravity())) {
+      if ((p.isCanJump()) && (this.p.hasGravity())) {
         jump = true;
       }
       break;

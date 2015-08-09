@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="150" height="50" tilewidth="16" tileheight="16" nextobjectid="1">
+ <tileset firstgid="1" name="Tiles" tilewidth="16" tileheight="16">
+  <image source="../textures/SpriteSheet.png" trans="ff00ff" width="256" height="256"/>
+  <tile id="3">
+   <properties>
+    <property name="Solid" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Collision" width="150" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt10EOgkAQAEFM/P+bvZsoINuuYB0q8SbMdHbDfVmWOwRuMJCuKOiKgq4o6IqCrijoioKuKOiKgq4o6IqCrijoioKuKOiKgq4o6IqCrijoioKuKOiKgq4o6IqCrijoioKuKOiKgq4o6IqCrijoioKuKOiKgq4o6IqCrijoioKuKMzqSsvX5ryioCuzMMt2BmYxfqbf+q+13zPeXVfdbKtdzX6/tWec/SxXNWq+z+dPvbMtZ98vnIn/6kgD73ZY7FEb57G3ga1nw+i7dfac2L+ztb19cueMvls5l1ffRHDUA3Q8IoQ=
+  </data>
+ </layer>
+</map>
