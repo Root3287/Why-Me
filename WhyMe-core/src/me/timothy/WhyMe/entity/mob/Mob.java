@@ -1,10 +1,5 @@
 package me.timothy.WhyMe.entity.mob;
 
-import me.timothy.WhyMe.entity.mob.player.Player;
-import me.timothy.WhyMe.screen.other.DialogMessage;
-
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
@@ -34,14 +29,14 @@ public abstract class Mob {
 	public abstract void dispose();
 	
 	protected void move(float xa, float ya){
-	    if ((xa != 0.0F) && (ya != 0.0F)){
-	      move(xa, 0.0F);
-	      move(0.0F, ya);
-	      return;
+		if ((xa != 0.0F) && (ya != 0.0F)){
+			move(xa, 0.0F);
+			move(0.0F, ya);
+			return;
 	    }
+		
 	    float oldX = this.x;float oldY = this.y;float tileWidth = this.collisionLayer.getTileWidth();float tileHeight = this.collisionLayer.getTileHeight();
 	    boolean CollideX = false;boolean CollideY = false;boolean hasMessage = false;
-	    
 	    
 	    int side = 0;
 	    
@@ -56,85 +51,74 @@ public abstract class Mob {
 	    
 	    if (side == 2){  // Right
 	    	TiledMapTileLayer.Cell cellX = this.collisionLayer.getCell((int)((getX() + this.width) / tileWidth), (int)((getY() + this.height) / tileHeight));
-	      CollideX = isCellBlocked(cellX);
-	      if (!CollideX) {
-	    	 TiledMapTileLayer.Cell cellXX = this.collisionLayer.getCell((int)((getX() + this.width) / tileWidth), (int)((getY() + this.height / 2) / tileHeight));
-	        CollideX = isCellBlocked(cellXX);
-	      }
-	      if (!CollideX) {
-	    	  TiledMapTileLayer.Cell cellXXX=this.collisionLayer.getCell((int)((getX() + this.width) / tileWidth), (int)(getY() / tileHeight));
-	        CollideX = isCellBlocked(cellXXX);
-	      }
+	    	CollideX = isCellBlocked(cellX);
+	    	if (!CollideX) {
+	    		TiledMapTileLayer.Cell cellXX = this.collisionLayer.getCell((int)((getX() + this.width) / tileWidth), (int)((getY() + this.height / 2) / tileHeight));
+	    		CollideX = isCellBlocked(cellXX);
+	    	}
+	    	if (!CollideX) {
+	    		TiledMapTileLayer.Cell cellXXX=this.collisionLayer.getCell((int)((getX() + this.width) / tileWidth), (int)(getY() / tileHeight));
+	    		CollideX = isCellBlocked(cellXXX);
+	    	}
 	    }
 	    if (side == 1){
 	    	TiledMapTileLayer.Cell cell2X = this.collisionLayer.getCell((int)(getX() / tileWidth), (int)((getY() + this.height) / tileHeight));
-	      CollideX = isCellBlocked(cell2X);
-	      if (!CollideX) {
-	    	  TiledMapTileLayer.Cell cell2XX = this.collisionLayer.getCell((int)(getX() / tileWidth), (int)((getY() + this.height / 2) / tileHeight));
-	        CollideX = isCellBlocked(cell2XX);
-	      }
-	      if (!CollideX) {
-	    	  TiledMapTileLayer.Cell cell2XXX = this.collisionLayer.getCell((int)(getX() / tileWidth), (int)(getY() / tileHeight));
-	        CollideX = isCellBlocked(cell2XXX);
-	      }
-	    }
-	    if (CollideX){
-	      setX(oldX);
-	      xa = 0.0F;
-	    }
-	    this.y += ya;
-	    if (ya > 0.0F) {
-	      side = 3; // Up
-	    }
-	    if (ya < 0.0F) {
-	      side = 0; // DOWN
-	    }
+	    	CollideX = isCellBlocked(cell2X);
+	    	if (!CollideX) {
+	    		TiledMapTileLayer.Cell cell2XX = this.collisionLayer.getCell((int)(getX() / tileWidth), (int)((getY() + this.height / 2) / tileHeight));
+	    		CollideX = isCellBlocked(cell2XX);
+	    	}
+	    	if (!CollideX) {
+	    		TiledMapTileLayer.Cell cell2XXX = this.collisionLayer.getCell((int)(getX() / tileWidth), (int)(getY() / tileHeight));
+	    		CollideX = isCellBlocked(cell2XXX);
+	    	}
+	   }
 	    
-	    if (side == 3){ // up
-	    	TiledMapTileLayer.Cell cellY = this.collisionLayer.getCell((int)(getX() / tileWidth), (int)((getY() + this.height) / tileHeight));
-	      CollideY = isCellBlocked(cellY);
-	      if (!CollideY) {
-	    	  TiledMapTileLayer.Cell cellYY = this.collisionLayer.getCell((int)((getX() + this.width / 2) / tileWidth), (int)((getY() + this.height) / tileHeight)); 
-	        CollideY = isCellBlocked(cellYY);
+	   if (CollideX){
+		   setX(oldX);
+		   xa = 0.0F;
+	   }
+	   
+	   this.y += ya;
+	   
+	   if (ya > 0.0F) {
+		   side = 3; // Up
+	   }
+	   if (ya < 0.0F) {
+		   side = 0; // DOWN
+	   }
+	    
+	   if (side == 3){ // up
+		   TiledMapTileLayer.Cell cellY = this.collisionLayer.getCell((int)(getX() / tileWidth), (int)((getY() + this.height) / tileHeight));
+		   CollideY = isCellBlocked(cellY);
+		   if (!CollideY) {
+			   TiledMapTileLayer.Cell cellYY = this.collisionLayer.getCell((int)((getX() + this.width / 2) / tileWidth), (int)((getY() + this.height) / tileHeight)); 
+			   CollideY = isCellBlocked(cellYY);
+		   }
+		   if (!CollideY) {
+			   TiledMapTileLayer.Cell cellYYY = this.collisionLayer.getCell((int)((getX() + this.width) / tileWidth), (int)((getY() + this.height) / tileHeight));
+			   CollideY = isCellBlocked(cellYYY);
 	      }
-	      if (!CollideY) {
-	    	  TiledMapTileLayer.Cell cellYYY = this.collisionLayer.getCell((int)((getX() + this.width) / tileWidth), (int)((getY() + this.height) / tileHeight));
-	        CollideY = isCellBlocked(cellYYY);
-	      }
-	    }
-	    if (side == 0){
-	      TiledMapTileLayer.Cell cell2Y =this.collisionLayer.getCell((int)(getX() / tileWidth), (int)(getY() / tileHeight)); 
+	  }
+	  if (side == 0){
+		  TiledMapTileLayer.Cell cell2Y =this.collisionLayer.getCell((int)(getX() / tileWidth), (int)(getY() / tileHeight)); 
 	      CollideY = isCellBlocked(cell2Y);
 	      if (!CollideY) {
 	    	  TiledMapTileLayer.Cell cell2YY = this.collisionLayer.getCell((int)((getX() + this.width / 2) / tileWidth), (int)(getY() / tileHeight));
-	        CollideY = isCellBlocked(cell2YY);
+	    	  CollideY = isCellBlocked(cell2YY);
 	      }
 	      if (!CollideY) {
-	    	TiledMapTileLayer.Cell cell2YYY = this.collisionLayer.getCell((int)((getX() + this.width) / tileWidth), (int)(getY() / tileHeight));
-	        CollideY = isCellBlocked(cell2YYY);
+	    	  TiledMapTileLayer.Cell cell2YYY = this.collisionLayer.getCell((int)((getX() + this.width) / tileWidth), (int)(getY() / tileHeight));
+	    	  CollideY = isCellBlocked(cell2YYY);
 	      }
 	      canJump = CollideY;
-	    }
-	    if (CollideY){
-	      setY(oldY);
-	      ya = 0.0F;
-	    }
-	    if(hasMessage){
-	    	
-	    }
-	    System.out.println("X: "+x+"; Y: "+y+";");
-	  }
-	
-	protected void processMessage(TiledMapTileLayer.Cell cell, boolean hasMessage){
-		final TiledMapTileLayer.Cell processingCell = cell;
-		if((this instanceof Player) && (hasMessage) && getStage() !=null && getSkin() !=null && processingCell !=null && Gdx.input.isKeyJustPressed(Keys.R)){
-	    	new DialogMessage("Sign", getSkin(), "dialog"){
-	    		{
-	    			init(getCellMessage(processingCell), "Back");
-	    			
-	    		}
-	    	}.show(stage);
-	    }
+	 }
+	 if (CollideY){
+		 setY(oldY);
+		 ya = 0.0F;
+	 }
+	 if(hasMessage){ /*Just a filler to turn off warnings... */}
+	 System.out.println("X: "+x+"; Y: "+y+";");
 	}
 	
 	protected boolean isCellBlocked(TiledMapTileLayer.Cell cell){ 
@@ -143,9 +127,6 @@ public abstract class Mob {
 		}
 		return false;
 	}
-	protected boolean isCellMessage(TiledMapTileLayer.Cell cell){ return (cell.getTile() !=null) && (cell.getTile()).getProperties().containsKey("Message");}
-	
-	protected String getCellMessage(TiledMapTileLayer.Cell cell){if(cell !=null){return (String) cell.getTile().getProperties().get("Message");}return null;}
 	
 	public float getX(){ return this.x;}
 	public float getY(){return this.y;}
