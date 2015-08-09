@@ -28,13 +28,16 @@ public class Welcome implements Screen{
 	@Override
 	public void show() {
 		skin = new Skin(Gdx.files.internal("ui/Menu.json"), new TextureAtlas("ui/Buttons.pack"));
-		stage = new Stage();
 		batch = new SpriteBatch();
 		b = new Bear(null,false,Gdx.graphics.getWidth()/2 - 4*16,Gdx.graphics.getHeight()/2 - 4*16);
+		
 		screen = new Image(new Texture(Gdx.files.internal("images/Screen.png")));
 		screen.setFillParent(true);
+		
+		stage = new Stage();
 		stage.addActor(screen);
 		Gdx.input.setInputProcessor(stage);
+		
 		TextButton next = new TextButton("Continue", skin);
 		next.setPosition(Gdx.graphics.getWidth()/2, 0);
 		next.addListener(new ClickListener(){
@@ -76,15 +79,13 @@ public class Welcome implements Screen{
 		Gdx.gl.glClearColor(0.09F, 0.09F, 0.09F, 0.5F);
 		
 		batch.begin();
-		b.render(batch);
+			b.render(batch);
 		batch.end();
 		
 		stage.act();
 		stage.draw();
 		
-		if(Gdx.input.isKeyJustPressed(Keys.J)){
-			((Game)Gdx.app.getApplicationListener()).setScreen(new Welcome());
-		}else if(Gdx.input.isKeyJustPressed(Keys.ESCAPE)){
+		if(Gdx.input.isKeyJustPressed(Keys.ESCAPE)){
 			((Game)Gdx.app.getApplicationListener()).setScreen(new MainMenu());
 		}
 	}

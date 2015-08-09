@@ -1,7 +1,6 @@
 package me.timothy.WhyMe.input;
 
 import me.timothy.WhyMe.entity.mob.Mob;
-import me.timothy.WhyMe.entity.mob.player.Player;
 
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
