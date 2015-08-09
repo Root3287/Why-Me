@@ -4,7 +4,6 @@ import me.timothy.WhyMe.entity.block.Block;
 import me.timothy.WhyMe.entity.mob.player.Player;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
