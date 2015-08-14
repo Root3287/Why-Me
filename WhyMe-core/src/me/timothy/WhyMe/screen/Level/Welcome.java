@@ -1,9 +1,5 @@
 package me.timothy.WhyMe.screen.Level;
 
-import me.timothy.WhyMe.entity.mob.bear.Bear;
-import me.timothy.WhyMe.screen.MainMenu;
-import me.timothy.WhyMe.screen.other.DialogMessage;
-
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
@@ -18,6 +14,10 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+
+import me.timothy.WhyMe.entity.mob.bear.Bear;
+import me.timothy.WhyMe.other.DialogMessage;
+import me.timothy.WhyMe.screen.MainMenu;
 
 public class Welcome implements Screen{
 	private Stage stage;

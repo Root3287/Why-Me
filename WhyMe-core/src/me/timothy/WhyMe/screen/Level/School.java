@@ -1,10 +1,5 @@
  package me.timothy.WhyMe.screen.Level;
 
-import me.timothy.WhyMe.entity.block.Blocks.Signs;
-import me.timothy.WhyMe.entity.mob.player.Player;
-import me.timothy.WhyMe.input.Keyboard;
-import me.timothy.WhyMe.screen.other.DialogMessage;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputMultiplexer;
@@ -20,6 +15,11 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+
+import me.timothy.WhyMe.entity.block.Blocks.Signs;
+import me.timothy.WhyMe.entity.mob.player.Player;
+import me.timothy.WhyMe.input.Keyboard;
+import me.timothy.WhyMe.other.DialogMessage;
 
 public class School implements Screen{
 	OrthographicCamera camera;

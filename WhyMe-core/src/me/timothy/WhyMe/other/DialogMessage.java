@@ -1,4 +1,4 @@
-package me.timothy.WhyMe.screen.other;
+package me.timothy.WhyMe.other;
 
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;

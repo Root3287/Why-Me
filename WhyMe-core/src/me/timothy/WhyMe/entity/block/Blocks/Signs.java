@@ -10,7 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 import me.timothy.WhyMe.entity.block.Block;
 import me.timothy.WhyMe.entity.mob.Mob;
-import me.timothy.WhyMe.screen.other.DialogMessage;
+import me.timothy.WhyMe.other.DialogMessage;
 
 public class Signs extends Block {
 	Stage stage;
