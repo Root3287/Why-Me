@@ -12,7 +12,7 @@ public abstract class Mob {
 	protected int width, height;
 	protected Texture tex;
 	protected TiledMapTileLayer collisionLayer;
-	protected boolean hasGravity=false, canJump = false;
+	protected boolean hasGravity=false, canJump = false, firstMove = false;
 	private Stage stage;
 	private Skin skin;
 	protected Vector2 velocity;
@@ -144,4 +144,12 @@ public abstract class Mob {
 	public void addSkin(Skin skin) {this.skin = skin;}
 	public boolean isCanJump() {return canJump;}
 	public void setCanJump(boolean canJump) {this.canJump = canJump;}
+
+	public boolean isFirstMove() {
+		return firstMove;
+	}
+
+	public void setFirstMove(boolean firstMove) {
+		this.firstMove = firstMove;
+	}
 }

@@ -17,6 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import me.timothy.WhyMe.entity.block.Blocks.Signs;
 import me.timothy.WhyMe.entity.mob.player.PlayerGravity;
 import me.timothy.WhyMe.input.Keyboard;
+import me.timothy.WhyMe.other.InfoText;
 
 public class GravityTest implements Screen {
 
@@ -27,6 +28,7 @@ public class GravityTest implements Screen {
 	Signs s;
 	Stage stage;
 	Skin skin;
+	InfoText it;
 	
 	@Override
 	public void show() {
@@ -39,6 +41,8 @@ public class GravityTest implements Screen {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		camera.zoom = 0.3f;
+		it = new InfoText(p, "S A X\nSPACE", -(2*16+5), 3*16);
+		
 		s.addPlayer(p);
 		s.addSkin(skin);
 		s.addStage(stage);
@@ -64,6 +68,7 @@ public class GravityTest implements Screen {
 		renderer.render(bg);
 		
 		renderer.getBatch().begin();
+			it.draw((SpriteBatch) renderer.getBatch());
 			p.render((SpriteBatch)renderer.getBatch());
 			s.draw((SpriteBatch)renderer.getBatch());
 		renderer.getBatch().end();
@@ -96,5 +101,4 @@ public class GravityTest implements Screen {
 	public void dispose() {
 
 	}
-
 }

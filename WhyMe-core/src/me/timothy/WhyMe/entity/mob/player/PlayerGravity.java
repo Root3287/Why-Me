@@ -57,9 +57,11 @@ public class PlayerGravity extends Mob{
 	private void keyboard(){
 		if(Keyboard.left){
 			velocity.x = -(float) (speed);
+			firstMove = true;
 		}
 		if(Keyboard.right){
 			velocity.x = (float) (speed);
+			firstMove = true;
 		}
 		//if(Keyboard.up){
 		//	velocity.y = speed;
@@ -69,6 +71,7 @@ public class PlayerGravity extends Mob{
 		//}
 		if(Keyboard.jump && canJump){
 			velocity.y = speed;
+			firstMove = true;
 			Timer.schedule(new Task(){
 				@Override
 				public void run() {
