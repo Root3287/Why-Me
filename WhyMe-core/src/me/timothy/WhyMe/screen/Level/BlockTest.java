@@ -15,53 +15,48 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 import me.timothy.WhyMe.entity.block.Blocks.Signs;
-import me.timothy.WhyMe.entity.mob.player.PlayerGravity;
+import me.timothy.WhyMe.entity.mob.player.Player;
 import me.timothy.WhyMe.input.Keyboard;
 
-public class GravityTest implements Screen {
-
-	PlayerGravity p;
-	TiledMap map;
+public class BlockTest implements Screen{
+	Signs s;
+	Player p;
 	OrthogonalTiledMapRenderer renderer;
 	OrthographicCamera camera;
-	Signs s;
+	TiledMap map;
 	Stage stage;
 	Skin skin;
-	
 	@Override
 	public void show() {
-		this.stage = new Stage();
-		this.skin = new Skin(Gdx.files.internal("ui/Menu.json"), new TextureAtlas("ui/Buttons.pack"));
-		map = new TmxMapLoader().load("images/Level/Parkour.tmx");
-		s = new Signs(3*16, 1*16,"Welcome this is the gravity test!");
-		p = new PlayerGravity((TiledMapTileLayer)map.getLayers().get(0), true, 16, 100);
+		stage = new Stage();
+		skin = new Skin(Gdx.files.internal("ui/Menu.json"), new TextureAtlas("ui/Buttons.pack"));
+		map = new TmxMapLoader().load("images/Level/TestLevel.tmx");
 		renderer = new OrthogonalTiledMapRenderer(map);
-		camera = new OrthographicCamera();
-		camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		camera.zoom = 0.3f;
+		p = new Player((TiledMapTileLayer)map.getLayers().get(0),Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
+		s = new Signs(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2,"qwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnm");
 		s.addPlayer(p);
 		s.addSkin(skin);
 		s.addStage(stage);
-		InputMultiplexer im = new InputMultiplexer();
+		camera = new OrthographicCamera();
+		camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		camera.zoom = 0.3f;
+		
+		InputMultiplexer im= new InputMultiplexer();
 		im.addProcessor(stage);
 		im.addProcessor(new Keyboard(p));
+		
 		Gdx.input.setInputProcessor(im);
 	}
 
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClear(GL30.GL_COLOR_BUFFER_BIT);
-		Gdx.gl.glClearColor(0.25f, 0.25f,0.25f, 1f);
+		Gdx.gl.glClearColor(0.5f, 0.5f, 0.0f, 0.0f);
 		
-		camera.position.x = p.getX();
-		camera.position.y = p.getY();
 		camera.update();
-		
 		renderer.setView(camera);
 		
-		int[] bg = {0};
-		
-		renderer.render(bg);
+		renderer.render();
 		
 		renderer.getBatch().begin();
 			p.render((SpriteBatch)renderer.getBatch());
@@ -74,27 +69,26 @@ public class GravityTest implements Screen {
 
 	@Override
 	public void resize(int width, int height) {
-
+		stage.getViewport().setScreenSize(width, height);
 	}
 
 	@Override
 	public void pause() {
-
+		
 	}
 
 	@Override
 	public void resume() {
-
+		
 	}
 
 	@Override
 	public void hide() {
-
+		
 	}
 
 	@Override
 	public void dispose() {
-
+		
 	}
-
 }

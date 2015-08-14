@@ -134,10 +134,8 @@ public class Player extends Mob{
 		}else{
 		
 		}
-		if (Keyboard.toggle) {
-			this.hasGravity = (!this.hasGravity);
-		}
-		System.out.println("X:" + this.x + " Y:" + this.y + " Gravity: " + this.hasGravity + " CanJump: " + this.canJump + " Delta: " + Gdx.graphics.getDeltaTime());
+		
+	//	System.out.println("X:" + this.x + " Y:" + this.y + " Gravity: " + this.hasGravity + " CanJump: " + this.canJump + " Delta: " + Gdx.graphics.getDeltaTime());
 	}
   
   public void canJump(boolean canJump){ this.canJump = canJump;}

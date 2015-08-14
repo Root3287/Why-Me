@@ -61,12 +61,12 @@ public class PlayerGravity extends Mob{
 		if(Keyboard.right){
 			velocity.x = (float) (speed);
 		}
-		if(Keyboard.up){
-			velocity.y = speed;
-		}
-		if(Keyboard.down){
-			velocity.y = -speed;
-		}
+		//if(Keyboard.up){
+		//	velocity.y = speed;
+		//}
+		//if(Keyboard.down){
+		//	velocity.y = -speed;
+		//}
 		if(Keyboard.jump && canJump){
 			velocity.y = speed;
 			Timer.schedule(new Task(){

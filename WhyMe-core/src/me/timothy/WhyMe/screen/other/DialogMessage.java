@@ -44,6 +44,7 @@ public class DialogMessage extends Dialog{
 			hide();
 			cancel();
 			remove();
+			System.out.println("Hello"); 
 		}
 	}
 	public void init(String Line,String ButtonText){

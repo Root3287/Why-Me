@@ -53,18 +53,15 @@ public class School implements Screen{
 		Gdx.input.setInputProcessor(im);
     
 		this.camera.zoom = 0.3F;
-		new DialogMessage("Welcome",this.skin, "dialog"){
-			{
-				init("Welcome!\n This is very early!","ok");
-			}
-		}.show(stage);
-    
     
 		this.p = new Player((TiledMapTileLayer)this.map.getLayers().get("Collision"), 1320,800);
 		this.p.addStage(stage);
 		this.p.addSkin(skin);
     
-		this.s = new Signs(p, 1321, 810, "Some content", stage, skin);
+		this.s = new Signs(1321, 810, "Some content");
+		this.s.addSkin(skin);
+		this.s.addStage(stage);
+		this.s.addPlayer(p);
 	}
   
 	public void render(float delta){
