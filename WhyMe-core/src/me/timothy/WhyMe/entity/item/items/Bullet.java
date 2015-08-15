@@ -7,13 +7,13 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import me.timothy.WhyMe.entity.item.Item;
 
-public class Cloth extends Item{
+public class Bullet extends Item{
 	Sprite pill;
-	public Cloth(float x, float y) {
+	public Bullet(float x, float y) {
 		this.x = x;
 		this.y = y;
 		tex = new Texture(Gdx.files.internal("images/textures/items.png"));
-		pill = new Sprite(tex, 8*16, 0, 16,16);
+		pill = new Sprite(tex, 5*16, 0, 16,16);
 	}
 	
 	@Override

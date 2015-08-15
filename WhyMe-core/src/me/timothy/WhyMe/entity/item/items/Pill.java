@@ -13,7 +13,7 @@ public class Pill extends Item{
 		this.x = x;
 		this.y = y;
 		tex = new Texture(Gdx.files.internal("images/textures/items.png"));
-		pill = new Sprite(tex, 5*16, 0, 16,16);
+		pill = new Sprite(tex, 6*16, 0, 16,16);
 	}
 	
 	@Override
