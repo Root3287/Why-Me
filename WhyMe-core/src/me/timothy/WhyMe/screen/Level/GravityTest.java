@@ -15,6 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 import me.timothy.WhyMe.entity.block.Blocks.Signs;
+import me.timothy.WhyMe.entity.item.items.PillBottle;
 import me.timothy.WhyMe.entity.mob.player.PlayerGravity;
 import me.timothy.WhyMe.input.Keyboard;
 import me.timothy.WhyMe.other.Debug;
@@ -31,6 +32,7 @@ public class GravityTest implements Screen {
 	Skin skin;
 	InfoText it;
 	Debug d;
+	PillBottle pill;
 	
 	@Override
 	public void show() {
@@ -46,6 +48,7 @@ public class GravityTest implements Screen {
 		it = new InfoText(p, "S A X\nSPACE", -(2*16+5), 3*16);
 		d = new Debug();
 		d.addPlayer(p);
+		pill = new PillBottle(110, 16);
 		
 		s.addPlayer(p);
 		s.addSkin(skin);
@@ -72,6 +75,7 @@ public class GravityTest implements Screen {
 		renderer.render(bg);
 		
 		renderer.getBatch().begin();
+			pill.render((SpriteBatch) renderer.getBatch());
 			d.render((SpriteBatch) renderer.getBatch());
 			it.draw((SpriteBatch) renderer.getBatch());
 			p.render((SpriteBatch)renderer.getBatch());

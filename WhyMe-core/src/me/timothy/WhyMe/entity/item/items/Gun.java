@@ -9,14 +9,11 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Gun extends Item{
-	private Texture tex;
 	private Sprite sp;
-	private int x =0, y= 0;
-	private boolean inInv = false;
 	private Player p;
 	public Gun(Player p,int x, int y){
 		this.tex = new Texture(Gdx.files.internal("images/textures/items.png"));
-		this.sp = new Sprite(this.tex,64,0,16,16);
+		this.sp = new Sprite(this.tex,4*16,0,16,16);
 		this.x = x;
 		this.y = y;
 		this.p = p;
