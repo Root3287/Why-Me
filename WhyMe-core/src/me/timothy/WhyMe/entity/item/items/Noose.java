@@ -7,9 +7,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import me.timothy.WhyMe.entity.item.Item;
 
-public class Nuse extends Item{
+public class Noose extends Item{
 	Sprite pill;
-	public Nuse(float x, float y) {
+	public Noose(float x, float y) {
 		this.x = x;
 		this.y = y;
 		tex = new Texture(Gdx.files.internal("images/textures/items.png"));
