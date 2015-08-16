@@ -1,18 +1,22 @@
 package me.timothy.WhyMe.entity.mob.player;
 
-import me.timothy.WhyMe.entity.mob.Mob;
-import me.timothy.WhyMe.input.Keyboard;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.Timer;
+import com.badlogic.gdx.utils.Timer.Task;
+
+import me.timothy.WhyMe.entity.item.Item;
+import me.timothy.WhyMe.entity.mob.Mob;
+import me.timothy.WhyMe.input.Keyboard;
 
 public class Player extends Mob{
-	private boolean hasGravity = false, canJump = false, paused;
+	private boolean paused;
   
 	private int side = 0,anim;
   
@@ -22,10 +26,10 @@ public class Player extends Mob{
 	@SuppressWarnings("unused")
 	private InputProcessor inputProcess;
   
-	private Array<String> inventory;
+	private Array<Item> inventory;
   
-	public Player(TiledMapTileLayer collision, float x, float y){
-		super(collision, false, x, y);
+	public Player(TiledMapTileLayer collision, boolean gravity, float x, float y){
+		super(collision, gravity, x, y);
 		this.tex = new Texture(Gdx.files.internal("images/player/Player-A.png"));
 		this.SpriteFront = new Sprite(this.tex, 0, 0, 16, 16);
 		this.SpriteFront2 = new Sprite(this.tex, 0, 16, 16, 16);
@@ -35,13 +39,14 @@ public class Player extends Mob{
 		this.SpriteRight2 = new Sprite(this.tex, 32, 16, 16, 16);
 		this.SpriteBack = new Sprite(this.tex, 48, 0, 16, 16);
 		this.SpriteBack2 = new Sprite(this.tex, 48, 16, 16, 16);
-		this.hasGravity = false;
 		this.inputProcess = Gdx.input.getInputProcessor();
 		this.collisionLayer = collision;
 		this.speed = 2F;
-		this.inventory = new Array<String>();
+		this.inventory = new Array<Item>();
 		this.width = 16;
 		this.height = 14;
+		this.gravity = 1.8f;
+		velocity = new Vector2();
 	}
   
 	public void render(SpriteBatch batch){
@@ -87,76 +92,90 @@ public class Player extends Mob{
 	  }
   
 	protected void update(){
-		this.xa = 0.0F;
-		this.ya = 0.0F;
+		velocity.x = 0.0F;
+		velocity.y = 0.0F;
+		
 		if (this.anim < 7500) {
 			this.anim += 1;
 		} else {
 			this.anim = 0;
 		}
+		
+		keyboard();
+		
+		move(velocity.x, velocity.y);
+		//	System.out.println("X:" + this.x + " Y:" + this.y + " Gravity: " + this.hasGravity + " CanJump: " + this.canJump + " Delta: " + Gdx.graphics.getDeltaTime());
+	}
+	private void keyboard(){
 		if (!this.hasGravity){
 			if (Keyboard.up) {
-				this.ya = this.speed;
+				velocity.y = this.speed;
 				this.side = 3;
 			}
 			if (Keyboard.down) {
-				this.ya = (-this.speed);
+				velocity.y = (-this.speed);
 				this.side = 0;
 			}
 			if (Keyboard.right) {
-				this.xa = this.speed;
+				velocity.x = this.speed;
 				this.side = 2;
 			}
 			if (Keyboard.left) {
-				this.xa = (-this.speed);
+				velocity.x = (-this.speed);
 				this.side = 1;
 			}
 		}else{
-			this.ya -= this.speed / Gdx.graphics.getDeltaTime();
-			if (this.ya > this.speed) {
-				this.ya = this.speed;
-			} else if (this.ya < -this.speed) {
-				this.ya = (-this.speed);
+			velocity.y = -gravity;
+			
+			if(velocity.y>gravity){
+				velocity.y = gravity;
+			}else if(velocity.y<-gravity){
+				velocity.y = -gravity;
 			}
-			if (Keyboard.left) {
-				this.xa -= 1.0F;
+			
+			if(Keyboard.left){
+				velocity.x = -(float) (speed);
+				firstMove = true;
 			}
-			if (Keyboard.right) {
-				this.xa += 1.0F;
+			if(Keyboard.right){
+				velocity.x = (float) (speed);
+				firstMove = true;
 			}
-			if ((Keyboard.jump) && (this.canJump)){
-				this.ya = (this.speed * 1.8F);
-				this.canJump = false;
-			}	
+			if(Keyboard.jump && canJump){
+				velocity.y = speed;
+				firstMove = true;
+				Timer.schedule(new Task(){
+					@Override
+					public void run() {
+						canJump = false;
+					}
+				}, 0.2f);
+			}
 		}
-		if ((this.xa != 0.0F) || (this.ya != 0.0F)){
-			move(this.xa, this.ya);
-		}else{
-		
-		}
-		
-	//	System.out.println("X:" + this.x + " Y:" + this.y + " Gravity: " + this.hasGravity + " CanJump: " + this.canJump + " Delta: " + Gdx.graphics.getDeltaTime());
 	}
   
   public void canJump(boolean canJump){ this.canJump = canJump;}
   public boolean canJump(){return this.canJump;}
   
-  public void removeItem(String item){
+  public void removeItem(Item item){
 	  if(inventory.contains(item, true)){
 		  inventory.removeValue(item,true);
 	  }
   }
-  public boolean addItem(String item){
+  
+  public boolean addItem(Item item){
 	  if(!(inventory.size<=32)){
 		  inventory.add(item);
 		  return true;
 	  }
 	  return false;
   }
-  public Array<String> getInventroy(){return inventory;}
+  public Array<Item> getInventroy(){return inventory;}
 
   @Override
   public void dispose(){tex.dispose();}
   public boolean isPaused(){return paused;}
   public void pause(boolean pause){this.paused = pause;}
+  public int getSide(){return side;}
+  public void setSide(int Side){this.side = Side;}
 }

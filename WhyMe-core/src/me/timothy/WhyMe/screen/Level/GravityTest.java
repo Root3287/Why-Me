@@ -16,14 +16,14 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 import me.timothy.WhyMe.entity.block.Blocks.Signs;
 import me.timothy.WhyMe.entity.item.items.PillBottle;
-import me.timothy.WhyMe.entity.mob.player.PlayerGravity;
+import me.timothy.WhyMe.entity.mob.player.Player;
 import me.timothy.WhyMe.input.Keyboard;
 import me.timothy.WhyMe.other.Debug;
 import me.timothy.WhyMe.other.InfoText;
 
 public class GravityTest implements Screen {
 
-	PlayerGravity p;
+	Player p;
 	TiledMap map;
 	OrthogonalTiledMapRenderer renderer;
 	OrthographicCamera camera;
@@ -39,13 +39,13 @@ public class GravityTest implements Screen {
 		this.stage = new Stage();
 		this.skin = new Skin(Gdx.files.internal("ui/Menu.json"), new TextureAtlas("ui/Buttons.pack"));
 		map = new TmxMapLoader().load("images/Level/Parkour.tmx");
-		s = new Signs(3*16, 1*16,"Welcome this is the gravity test!");
-		p = new PlayerGravity((TiledMapTileLayer)map.getLayers().get(0), true, 16, 100);
+		s = new Signs(3*16, 1*16,"Welcome this is the gravity test!\nPress F3 once for Debug and R to reset the map!\nWSAD to move. X for action.");
+		p = new Player((TiledMapTileLayer)map.getLayers().get(0), true, 16, 100);
 		renderer = new OrthogonalTiledMapRenderer(map);
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		camera.zoom = 0.3f;
-		it = new InfoText(p, "S A X\nSPACE", -(2*16+5), 3*16);
+		it = new InfoText(p, "S A X\nSPACE", -(2*16+6), 3*16);
 		d = new Debug();
 		d.addPlayer(p);
 		pill = new PillBottle(110, 16);
@@ -88,7 +88,9 @@ public class GravityTest implements Screen {
 
 	@Override
 	public void resize(int width, int height) {
-
+		camera.viewportWidth = width;
+		camera.viewportHeight = height;
+		stage.getViewport().setScreenSize(width, height);
 	}
 
 	@Override

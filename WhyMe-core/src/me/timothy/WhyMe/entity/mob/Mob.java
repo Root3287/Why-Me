@@ -8,7 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 public abstract class Mob {
-	protected float x, y ,ya,xa,speed;
+	protected float x, y ,ya,xa,speed, gravity = 1.8f;
 	protected int width, height;
 	protected Texture tex;
 	protected TiledMapTileLayer collisionLayer;

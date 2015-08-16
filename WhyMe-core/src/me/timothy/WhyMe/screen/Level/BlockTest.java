@@ -32,7 +32,7 @@ public class BlockTest implements Screen{
 		skin = new Skin(Gdx.files.internal("ui/Menu.json"), new TextureAtlas("ui/Buttons.pack"));
 		map = new TmxMapLoader().load("images/Level/TestLevel.tmx");
 		renderer = new OrthogonalTiledMapRenderer(map);
-		p = new Player((TiledMapTileLayer)map.getLayers().get(0),Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
+		p = new Player((TiledMapTileLayer)map.getLayers().get(0),false,Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
 		s = new Signs(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2,"qwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnm");
 		s.addPlayer(p);
 		s.addSkin(skin);

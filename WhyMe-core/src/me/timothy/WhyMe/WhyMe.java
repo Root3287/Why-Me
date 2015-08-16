@@ -13,6 +13,7 @@ public class WhyMe extends Game{
 	@Override
 	public void create() {
 		setScreen(new Splash());
+		System.out.println("Copyright (c) Timothy Gibbons(Root3287) 2015 \n The player sprite is not under this copyright.");
 	}
 	
 	@Override

@@ -16,7 +16,6 @@ import com.badlogic.gdx.utils.Timer.Task;
 public class PlayerGravity extends Mob{
 
 	Sprite player;
-	float gravity = 1.8f;
 	InputProcessor ip;
 	
 	public PlayerGravity(TiledMapTileLayer collision, boolean gravity, float x, float y) {
@@ -63,12 +62,6 @@ public class PlayerGravity extends Mob{
 			velocity.x = (float) (speed);
 			firstMove = true;
 		}
-		//if(Keyboard.up){
-		//	velocity.y = speed;
-		//}
-		//if(Keyboard.down){
-		//	velocity.y = -speed;
-		//}
 		if(Keyboard.jump && canJump){
 			velocity.y = speed;
 			firstMove = true;
@@ -77,8 +70,7 @@ public class PlayerGravity extends Mob{
 				public void run() {
 					canJump = false;
 				}
-			}, 0.2f);
-			
+			}, 0.2f);	
 		}
 	}
 	

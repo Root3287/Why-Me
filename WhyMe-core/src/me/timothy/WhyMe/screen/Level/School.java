@@ -54,7 +54,7 @@ public class School implements Screen{
     
 		this.camera.zoom = 0.3F;
     
-		this.p = new Player((TiledMapTileLayer)this.map.getLayers().get("Collision"), 1320,800);
+		this.p = new Player((TiledMapTileLayer)this.map.getLayers().get("Collision"), false, 1320,800);
 		this.p.addStage(stage);
 		this.p.addSkin(skin);
     
