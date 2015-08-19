@@ -1,10 +1,19 @@
 package me.timothy.WhyMe.screen.Level;
 
+import me.timothy.WhyMe.entity.block.Blocks.Signs;
+import me.timothy.WhyMe.entity.item.items.PillBottle;
+import me.timothy.WhyMe.entity.mob.player.Player;
+import me.timothy.WhyMe.input.Keyboard;
+import me.timothy.WhyMe.other.Debug;
+import me.timothy.WhyMe.other.InfoText;
+import me.timothy.WhyMe.other.Time;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL30;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -14,25 +23,21 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
-import me.timothy.WhyMe.entity.block.Blocks.Signs;
-import me.timothy.WhyMe.entity.item.items.PillBottle;
-import me.timothy.WhyMe.entity.mob.player.Player;
-import me.timothy.WhyMe.input.Keyboard;
-import me.timothy.WhyMe.other.Debug;
-import me.timothy.WhyMe.other.InfoText;
-
 public class GravityTest implements Screen {
 
+	Time t;
 	Player p;
 	TiledMap map;
 	OrthogonalTiledMapRenderer renderer;
 	OrthographicCamera camera;
 	Signs s;
-	Stage stage;
+	Stage stage,debug;
 	Skin skin;
 	InfoText it;
 	Debug d;
 	PillBottle pill;
+	BitmapFont font;
+	SpriteBatch batch;
 	
 	@Override
 	public void show() {
@@ -46,9 +51,9 @@ public class GravityTest implements Screen {
 		camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		camera.zoom = 0.3f;
 		it = new InfoText(p, "S A X\nSPACE", -(2*16+6), 3*16);
-		d = new Debug();
-		d.addPlayer(p);
 		pill = new PillBottle(110, 16);
+		t = new Time();
+		font = new BitmapFont(Gdx.files.internal("font/Black-8.fnt"));
 		
 		s.addPlayer(p);
 		s.addSkin(skin);
@@ -76,11 +81,12 @@ public class GravityTest implements Screen {
 		
 		renderer.getBatch().begin();
 			pill.render((SpriteBatch) renderer.getBatch());
-			d.render((SpriteBatch) renderer.getBatch());
 			it.draw((SpriteBatch) renderer.getBatch());
 			p.render((SpriteBatch)renderer.getBatch());
-			s.draw((SpriteBatch)renderer.getBatch());
+			s.draw((SpriteBatch)renderer.getBatch());	
 		renderer.getBatch().end();
+		
+		t.update();
 		
 		stage.act();
 		stage.draw();
