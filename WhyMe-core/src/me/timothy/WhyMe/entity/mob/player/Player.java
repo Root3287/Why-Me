@@ -136,10 +136,12 @@ public class Player extends Mob{
 			if(Keyboard.left){
 				velocity.x = -(float) (speed);
 				firstMove = true;
+				side = 1;
 			}
 			if(Keyboard.right){
 				velocity.x = (float) (speed);
 				firstMove = true;
+				side = 2;
 			}
 			if(Keyboard.jump && canJump){
 				velocity.y = speed;
