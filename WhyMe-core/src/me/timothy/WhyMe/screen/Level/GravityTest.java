@@ -80,7 +80,7 @@ public class GravityTest implements Screen {
 		renderer.render(bg);
 		
 		renderer.getBatch().begin();
-			pill.render((SpriteBatch) renderer.getBatch());
+			//pill.render((SpriteBatch) renderer.getBatch());
 			it.draw((SpriteBatch) renderer.getBatch());
 			p.render((SpriteBatch)renderer.getBatch());
 			s.draw((SpriteBatch)renderer.getBatch());	
