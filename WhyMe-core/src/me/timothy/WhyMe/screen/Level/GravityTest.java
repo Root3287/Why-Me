@@ -50,7 +50,7 @@ public class GravityTest implements Screen {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		camera.zoom = 0.3f;
-		it = new InfoText(p, "S A X\nSPACE", -(2*16+6), 3*16);
+		it = new InfoText(p, "S A X\nSPACE", -(2*16+9), 4*16);
 		pill = new PillBottle(110, 16);
 		t = new Time();
 		font = new BitmapFont(Gdx.files.internal("font/Black-8.fnt"));

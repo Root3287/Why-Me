@@ -13,7 +13,7 @@ public class InfoText {
 	private float xOffset, yOffset;
 	public InfoText(Mob mob, String content, float xOffset, float yOffset){
 		this.mob = mob;
-		this.font = new BitmapFont(Gdx.files.internal("font/White-8.fnt"));
+		this.font = new BitmapFont(Gdx.files.internal("font/White-14-Native.fnt"));
 		this.xOffset = xOffset;
 		this.yOffset = yOffset;
 		this.content = content;

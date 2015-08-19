@@ -50,10 +50,10 @@ public class MainMenu implements Screen{
 		this.table = new Table(this.skin);
 		this.table.setFillParent(true);
     
-		this.heading = new Label("Why Me?", this.skin);
+		this.heading = new Label("Why Me?", this.skin, "menu");
     
-		this.buttonPlay = new TextButton("Play", this.skin);
-		this.buttonExit = new TextButton("Exit", this.skin);
+		this.buttonPlay = new TextButton("Play", this.skin, "menu");
+		this.buttonExit = new TextButton("Exit", this.skin, "menu");
     
 		this.buttonPlay.pad(10.0F);
 		this.buttonPlay.addListener(new ClickListener(){

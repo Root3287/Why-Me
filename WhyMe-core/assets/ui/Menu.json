@@ -9,20 +9,30 @@
 	"com.badlogic.gdx.graphics.g2d.BitmapFont":{
 	    "white8": {"file": "font/White-8.fnt",},
 	    "black8": {"file": "font/Black-8.fnt",},
+	    "white12": {"file": "font/White-12.fnt",},
+	    "black12": {"file": "font/Black-12.fnt",},
+	    "white14": {"file": "font/White-14.fnt",},
+	    "black14": {"file": "font/Black-14.fnt",},
 		"white16": {"file": "font/White-16.fnt",},
 		"black16": {"file": "font/Black-16.fnt",},
 		"white32": {"file": "font/White-32.fnt",},
 		"black32": {"file": "font/Black-32.fnt",},
+		"white48": {"file": "font/White-48.fnt",},
+		"black48": {"file": "font/Black-48.fnt",},
 		"white64": {"file": "font/White-64.fnt",},
 		"black64": {"file": "font/Black-64.fnt",},
+		"white128": {"file": "font/White-128.fnt",},
+		"black128": {"file": "font/Black-128.fnt",},
 	},
 	"com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle":{
 		"default":{"font":white64, "fontColor":white},
-		"dialog":{"font":white16, "fontColor":white},
+		"menu":{"font":white128, "fontColor":white},
+		"dialog":{"font":white32, "fontColor":white},
 	},
 	"com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle":{
-		"default":{"up": "Button.Up", "down": "Button.Down","font":black32,"pressedOffsetX": 1, "pressedOffsetY": -1,},
-		"dialog":{"up": "Button.Up", "down": "Button.Down","font":black16,"pressedOffsetX": 1, "pressedOffsetY": -1,},
+		"default":{"up": "Button.Up", "down": "Button.Down","font":black64,"pressedOffsetX": 1, "pressedOffsetY": -1,},
+		"menu":{"up": "Button.Up", "down": "Button.Down","font":black64,"pressedOffsetX": 1, "pressedOffsetY": -1,},
+		"dialog":{"up": "Button.Up", "down": "Button.Down","font":black32,"pressedOffsetX": 1, "pressedOffsetY": -1,},
 	},
 	"com.badlogic.gdx.scenes.scene2d.ui.List$ListStyle":{
 		"default":{"font":white64, "fontColorSelected": white, "fontColorUnselected":white, "selection":"Button.Selected"},
@@ -31,8 +41,8 @@
 		"default":{"hScrollKnob": "Button.Up", "vScrollKnob":"Button.Up"}
 	},
 	"com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle":{
-		"default":{"titleFont": "white16"},
-		"dialog": {"titleFont": "white16","background":"Button.Black","stageBackground":"Button.Black"},
-		"dialog invisablebg": {"titleFont": "white16",},
+		"default":{"titleFont": "white32"},
+		"dialog": {"titleFont": "white32","background":"Button.Black","stageBackground":"Button.Black"},
+		"dialog invisablebg": {"titleFont": "white32",},
 	},
 }
